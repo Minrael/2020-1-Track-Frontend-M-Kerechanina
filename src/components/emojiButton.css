@@ -1,0 +1,21 @@
+
+.emoji {
+  background: no-repeat;
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+}
+
+
+i.smile-face {
+    background: url('../static/slightly-smiling-face.png?sprite');
+}
+i.sad-face {
+    background: url('../static/slightly-frowning-face.png?sprite');
+}
+i.surprised-face {
+    background: url('../static/hushed-face.png?sprite');
+}
+i.happy-face {
+    background: url('../static/beaming-face-with-smiling-eyes.png?sprite');
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sendMessage } from '../actions';
+import { sendMessage } from '../actions/sendMessage';
 
 const Msg = (props) => (
     <button onClick = {() => props.sendMessage()} ></button>
