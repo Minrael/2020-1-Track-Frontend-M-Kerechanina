@@ -1,16 +1,16 @@
 import React from 'react';
-import syles from './emojiButton.css'
+import syles from './EmojiTool.css'
 
 
 function Emoji(props){
   return (
-    <i className={props.name + " emoji"} onClick={props.onClick}/>
+    <i className={props.name + " emoji"} onClick={() => props.onClick(props.name)}/>
   );
 }
 
-function EmojiBar(props) {
+function EmojiTool(props) {
     return(
-        <div className = 'EmojiTool' onClick={props.handleEmojiClick}>
+        <div className = 'EmojiTool'>
             <Emoji name='smile-face' onClick={props.handleEmojiClick}/>
             <Emoji name='sad-face' onClick={props.handleEmojiClick}/>
             <Emoji name='surprised-face' onClick={props.handleEmojiClick}/>
@@ -19,4 +19,4 @@ function EmojiBar(props) {
     );
 }
 
-export default EmojiBar;
+export default EmojiTool;

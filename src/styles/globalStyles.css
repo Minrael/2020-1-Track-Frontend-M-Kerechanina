@@ -33,3 +33,17 @@ img{
 .index-page {
     background-color: #C691D4;
 }
+
+.message {
+    background: #C691D4;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 40px;
+    align-self: flex-end;
+} 
+
+.Message-list {
+    display: flex;
+    flex-direction: column;
+}

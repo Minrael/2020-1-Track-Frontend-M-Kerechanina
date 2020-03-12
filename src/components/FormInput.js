@@ -5,7 +5,7 @@ import { getMessages } from '../actions/getMessage'
 import submit from '../static/mailsend_104372.png';
 import attach from '../static/attach-rotated_icon-icons.com_68593.png';
 import emoji from '../static/mbrismileface_99462.png'
-import EmojiBar from './EmojiButton'
+import EmojiTool from './EmojiTool'
 import styles from '../styles/globalStyles.css'
 
 
@@ -19,32 +19,38 @@ function  TemplateButton(props) {
 
 function FormInput(props) {
 
+
     const {placeholder, sendMsg, getMsgs } = props
     const [inputMessage, setInputMessage] = useState(''); 
     const [emojiView, setEmojiView] = useState(false); 
 
+    /*let i = 0;
+    let Msg = {
+        id: i,
+        data: '',
+    }*/
 
-    function _onSubmit(event){
-        event.preventDefault();
-        console.log('inputMessage: ' + inputMessage);
-        sendMsg(inputMessage);
-        setInputMessage('');
+    function handleSubmit(event){
+        if (inputMessage !== '') {
+            event.preventDefault();
+            sendMsg(inputMessage);
+            setInputMessage('');
+        }
     }
 
-    function _onKeyPress(event) {
-        if (event.charCode === 13 && (inputMessage !== '')) {
+    function handleKeyPress(event) {
+        if (event.charCode === 13) {
             event.preventDefault();
-            _onSubmit(event);
+            handleSubmit(event);
         }
     }
     
-    function _onInputChange(event) {
+    function handleInputChange(event) {
       setInputMessage(event.target.value);
-      console.log(inputMessage);
       event.preventDefault();
     }
 
-    function _getMessages(event) {
+    function handleGetMessages(event) {
         event.preventDefault();
         getMsgs();
     }
@@ -54,15 +60,16 @@ function FormInput(props) {
     }
 
     function handleEmojiClick(emojiCode) {
-        setInputMessage(inputMessage + '::' + emojiCode + '::');
+        setInputMessage(inputMessage + emojiCode);
+        setEmojiView(false);
     }
 
     return (
         <section className = 'chat'>
-            {emojiView === true ? <EmojiBar onClick = { handleEmojiClick }/>:<div></div>}
-            <input className = 'input-form' placeholder = { placeholder } style = { styles } onChange = { _onInputChange } onKeyPress= { _onKeyPress } />
-            < TemplateButton alt = 'submit-button' Image = { submit } onClick = { _onSubmit } />
-            < TemplateButton alt = 'attach-button' Image = { attach } onClick = { _getMessages}/>
+            {emojiView === true ? <EmojiTool handleEmojiClick = { handleEmojiClick }/>:<div></div>}
+            <input value={inputMessage} className = 'input-form' placeholder = { placeholder } style = { styles } onChange = { handleInputChange } onKeyPress = { handleKeyPress } />
+            < TemplateButton alt = 'submit-button' Image = { submit } onClick = { handleSubmit } />
+            < TemplateButton alt = 'attach-button' Image = { attach } onClick = { handleGetMessages}/>
             < TemplateButton alt = 'emoji-button' Image = { emoji } onClick = { handleEmojiView}/>
         </section>
         )
