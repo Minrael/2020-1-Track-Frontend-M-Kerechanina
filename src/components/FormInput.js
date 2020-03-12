@@ -60,7 +60,7 @@ function FormInput(props) {
     }
 
     function handleEmojiClick(emojiCode) {
-        setInputMessage(inputMessage + emojiCode);
+        setInputMessage(inputMessage + ':::' + emojiCode + ':::');
         setEmojiView(false);
     }
 
