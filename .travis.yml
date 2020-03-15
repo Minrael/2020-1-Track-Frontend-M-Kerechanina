@@ -2,10 +2,5 @@ language: node_js
 node_js:
   - "stable"
 
-script:
-  - npm run test
-  - npm run build
-  on:
-    branch:
-      - master
-      - HomeWork1
+branches:
+  - HomeWork1
