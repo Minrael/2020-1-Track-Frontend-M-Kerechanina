@@ -11,10 +11,15 @@ function Emoji(props){
 function EmojiTool(props) {
     return(
         <div className = 'EmojiTool'>
-            <Emoji name='smile-face' onClick={props.handleEmojiClick}/>
-            <Emoji name='sad-face' onClick={props.handleEmojiClick}/>
-            <Emoji name='surprised-face' onClick={props.handleEmojiClick}/>
-            <Emoji name='happy-face' onClick={props.handleEmojiClick}/>
+            <Emoji name='smile' onClick={props.handleEmojiClick}/>
+            <Emoji name='sad' onClick={props.handleEmojiClick}/>
+            <Emoji name='surprised' onClick={props.handleEmojiClick}/>
+            <Emoji name='angry' onClick={props.handleEmojiClick}/>
+            <Emoji name='happy' onClick={props.handleEmojiClick}/>
+            <Emoji name='kiss' onClick={props.handleEmojiClick}/>
+            <Emoji name='mask' onClick={props.handleEmojiClick}/>
+            <Emoji name='tongue' onClick={props.handleEmojiClick}/>
+            <Emoji name='crying' onClick={props.handleEmojiClick}/>
         </div>
     );
 }

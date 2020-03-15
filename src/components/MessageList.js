@@ -1,24 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getMessages } from '../actions/getMessage';
-import smile from '../static/slightly-smiling-face.png'
 import styles from '../styles/globalStyles.css'
-
-/*function Message (msg, key) {
-    if (msg=='smile') {
-        return <p className = 'message' key = {key}>{smile}</p>
-    }
-
-    return (
-        <p className = 'message' key = {key}>{ msg }</p>
-    )
-}*/
-
-function emojiToImage(emojiCode, key) {
-    return (
-        <p className = 'message' key = {key}><img src={smile}/></p>
-    )
-}
+import syles from './EmojiTool.css'
 
 function MessageList(props) {
 
@@ -28,30 +12,25 @@ function MessageList(props) {
     let i = 0;
     if (typeof(messages)!=='undefined'){
         messages.forEach( function(msg) {
-            if (msg.indexOf(':::') === -1)  {
-                msgs_render.push(<p className = 'message' key = { i }>{ msg }</p>);
+            if (msg.indexOf('&#') === -1)  {
+                let messageBox = (<p key = {i} className = 'message'>{ msg }</p>);
+                msgs_render.push(messageBox);
                 i += 1;
             }
             else {
-                msgs_render.push(emojiToImage('smile-face', i));
+                let withEmoji = msg.replace(/&#(\w+)#&/g, ' <i class="$1 + emoji"}></i> ');
+                let messageBox = (<p key = {i} className = 'message' dangerouslySetInnerHTML={{__html:withEmoji}}></p>);
+                msgs_render.push(messageBox);
                 i += 1;
             }
         });
-        
-
-    console.log(typeof messages);
-    console.log(messages);
 
     return ( 
         <div className='Message-list'>
             { msgs_render }
         </div>
     );
-
     }  
-        else {
-        console.log('');
-    }
 }
 
 const mapStateToProps = (state) => ({
@@ -62,4 +41,3 @@ export default connect(
     mapStateToProps,
     { getMessages },
 )(MessageList)
-

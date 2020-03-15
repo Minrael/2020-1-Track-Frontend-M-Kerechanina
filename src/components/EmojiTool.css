@@ -10,15 +10,30 @@
 }
 
 
-i.smile-face {
+i.smile {
     background: url('../static/slightly-smiling-face.png?sprite');
 }
-i.sad-face {
+i.sad {
     background: url('../static/slightly-frowning-face.png?sprite');
 }
-i.surprised-face {
+i.surprised {
     background: url('../static/hushed-face.png?sprite');
 }
-i.happy-face {
+i.angry{
+    background: url('../static/angry-face.png?sprite');
+}
+i.happy {
     background: url('../static/beaming-face-with-smiling-eyes.png?sprite');
+}
+i.kiss {
+    background: url('../static/face-blowing-a-kiss.png?sprite');
+}
+i.mask{
+    background: url('../static/face-with-medical-mask.png?sprite');
+}
+i.tongue{
+    background: url('../static/face-with-tongue.png?sprite');
+}
+i.crying{
+    background: url('../static/loudly-crying-face.png?sprite');
 }

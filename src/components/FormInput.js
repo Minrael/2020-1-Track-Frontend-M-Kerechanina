@@ -24,12 +24,6 @@ function FormInput(props) {
     const [inputMessage, setInputMessage] = useState(''); 
     const [emojiView, setEmojiView] = useState(false); 
 
-    /*let i = 0;
-    let Msg = {
-        id: i,
-        data: '',
-    }*/
-
     function handleSubmit(event){
         if (inputMessage !== '') {
             event.preventDefault();
@@ -60,7 +54,7 @@ function FormInput(props) {
     }
 
     function handleEmojiClick(emojiCode) {
-        setInputMessage(inputMessage + ':::' + emojiCode + ':::');
+        setInputMessage(inputMessage + '&#' + emojiCode + '#&');
         setEmojiView(false);
     }
 
