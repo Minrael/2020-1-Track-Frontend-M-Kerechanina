@@ -4,3 +4,16 @@ node_js:
 
 branches:
   - HomeWork1
+
+script:
+  - npm run test
+  - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: build
+  on:
+    branch:
+      - master
+      - devel
