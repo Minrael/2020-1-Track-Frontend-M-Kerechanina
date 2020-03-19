@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getMessages } from '../actions/getMessage';
-import styles from '../styles/globalStyles.css'
-import syles from './EmojiTool.css'
+//import styles from '../styles/globalStyles.css'
+//import syles from './EmojiTool.css'
 
 function MessageList(props) {
 

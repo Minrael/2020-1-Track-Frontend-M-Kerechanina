@@ -1,5 +1,5 @@
 import React from 'react';
-import syles from './EmojiTool.css'
+//import syles from './EmojiTool.css'
 
 
 function Emoji(props){

@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '../styles/globalStyles.css';
+//import styles from '../styles/globalStyles.css';
 import FormInput from './FormInput';
 import MessageList from './MessageList'
-import Header from './Header'
+//import Header from './Header'
 //import styled from '@emotion/styled'
 
 

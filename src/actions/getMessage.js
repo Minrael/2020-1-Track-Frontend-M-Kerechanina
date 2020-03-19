@@ -1,7 +1,7 @@
 import {
   GET_MESSAGE_REQUEST,
-  GET_MESSAGE_SUCCESS,
-  GET_MESSAGE_FAILURE,
+  //GET_MESSAGE_SUCCESS,
+  //GET_MESSAGE_FAILURE,
 
 } from '../constants/ActionTypes'
 

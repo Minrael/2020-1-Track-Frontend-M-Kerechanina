@@ -1,7 +1,7 @@
 import {
   GET_MESSAGE_REQUEST,
-  GET_MESSAGE_SUCCESS,
-  GET_MESSAGE_FAILURE,
+  //GET_MESSAGE_SUCCESS,
+  //GET_MESSAGE_FAILURE,
 
 } from '../constants/ActionTypes'
 
@@ -21,7 +21,7 @@ export default (state=initialState, action) => {
                 error: null,
             }
         }
-            break;
+            //break;
         /*case SEND_MESSAGE_SUCCESS:
             console.log('success' + state);
             return {

@@ -4,7 +4,7 @@ import FormChat from './components/FormChat.js'
 import { 
     BrowserRouter as Router, 
     Route,
-    Switch,
+    //Switch,
     Link
 } from 'react-router-dom';
 
