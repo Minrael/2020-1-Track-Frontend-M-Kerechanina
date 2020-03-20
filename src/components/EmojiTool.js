@@ -1,5 +1,5 @@
 import React from 'react';
-//import syles from './EmojiTool.css'
+import styles from './EmojiTool.css'
 
 
 function Emoji(props){
@@ -10,7 +10,7 @@ function Emoji(props){
 
 function EmojiTool(props) {
     return(
-        <div className = 'EmojiTool'>
+        <div className = {styles.EmojiTool}>
             <Emoji name='smile' onClick={props.handleEmojiClick}/>
             <Emoji name='sad' onClick={props.handleEmojiClick}/>
             <Emoji name='surprised' onClick={props.handleEmojiClick}/>

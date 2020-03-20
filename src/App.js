@@ -13,8 +13,8 @@ function IndexPage () {
     return (
         <section className = 'index-page'>
           <h1>Messenger</h1>
-          <Link to='/user/signin'> Sign in </Link>
-          <Link to='/user/signup'>Sign up</Link>
+          <Link to={`${process.env.PUBLIC_URL}/user/signin`}> Sign in </Link>
+          <Link to={`${process.env.PUBLIC_URL}/user/signup`}>Sign up</Link>
         </section>
         )
 }
@@ -25,10 +25,10 @@ function SignIn () {
           <h1>User Menu</h1>
           <ul>
             <li>
-              <Link to='/chats'> Chats </Link>
+              <Link to={`${process.env.PUBLIC_URL}/chats`}> Chats </Link>
             </li>
             <li>
-              <Link to='/profile'>Profile</Link>
+              <Link to={`${process.env.PUBLIC_URL}/profile`}>Profile</Link>
             </li>
           </ul>
         </section>
@@ -48,9 +48,9 @@ render() {
   return (
     <Router>
       <div>
-        <Route exact path='/' component = { IndexPage } />
-        <Route exact path='/user/signin' component = { SignIn } />
-        <Route exact path='/chats' component = { FormChat } />
+        <Route exact path={process.env.PUBLIC_URL} component = { IndexPage } />
+        <Route exact path={`${process.env.PUBLIC_URL}/user/signin`} component = { SignIn } />
+        <Route exact path={`${process.env.PUBLIC_URL}/chats`} component = { FormChat } />
       </div>
     </Router>
     )
