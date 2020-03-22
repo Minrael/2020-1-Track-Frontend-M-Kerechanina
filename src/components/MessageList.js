@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getMessages } from '../actions/getMessage';
-//import styles from '../styles/globalStyles.css'
-//import syles from './EmojiTool.css'
 
 function MessageList(props) {
 
@@ -18,7 +16,7 @@ function MessageList(props) {
                 i += 1;
             }
             else {
-                let withEmoji = msg.replace(/&#(\w+)#&/g, ' <i class="$1 + emoji"}></i> ');
+                let withEmoji = msg.replace(/&#(\w+)#&/g, ' <i class="$1 emoji"></i> ');
                 let messageBox = (<p key = {i} className = 'message' dangerouslySetInnerHTML={{__html:withEmoji}}></p>);
                 msgs_render.push(messageBox);
                 i += 1;

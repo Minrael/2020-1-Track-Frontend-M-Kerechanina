@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './EmojiTool.css'
+import styles from '../styles/EmojiTool.css'
 
 
 function Emoji(props){

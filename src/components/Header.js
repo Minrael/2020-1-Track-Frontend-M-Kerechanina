@@ -11,7 +11,7 @@ import avatar from '../static/american.svg';
 
 }*/
 
-function BackButton() {
+export function BackButton() {
     return (
         <Link to={`${process.env.PUBLIC_URL}/user/signin`}>
           <div className = 'back-arrow'>
@@ -21,19 +21,19 @@ function BackButton() {
     )
 }
 
-function SearchButton() {
+export function SearchButton() {
     return(
         <div className = 'search-button'><img alt = 'search-button' src = { search } /></div>
     )
 }
 
-function MoreButton() {
+export function MoreButton() {
     return(
         <div className = 'more-button'><img alt = 'more-button' src = { more } /></div>
     )
 }
 
-function UserInfo() {
+export function UserInfo() {
     return(
     <div className='user-info'>
         <div className = 'divAvatar'>
