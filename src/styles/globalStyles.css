@@ -1,39 +1,63 @@
+.html{
+    height: 100%;
+    width: 100%;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
 .imgButton {
     height: 37px;
     width: 37px;
     padding: 3px;
 }
 
-img{
-    padding: 4px 4px 4px 4px;
-    background: white;
-    height: 40px;
-    width: 40px;
-    border: none;
-}
-.rectangle {
-    background-color: red;
-    width:100%;
-    height:10%;
-}
-.input-form {
-    display:flex;
-    width: 90%;
-    font-size: 40px;
-    height: 5vh;
-    align-self: flex-end;
-    /*position: fixed;*/
 
-}
-.chat {
-    display:flex;
-}
+
 .chat1 {
     display:flex;
     flex-direction: column-reverse;
 }
 .index-page {
-    background-color: #dda6ec;
+    background-color: #8E24AA;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.AppName{
+    color:white;
+    font-size: 70px;
+    padding: 40px;
+}
+
+A:link{
+    font-size: 50px;
+    text-decoration: none;
+    color:white;
+}
+A:visited{
+    color:white;
+}
+
+.user-page{
+    background-color: #8E24AA;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .message {
@@ -46,6 +70,16 @@ img{
 } 
 
 .Message-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    flex-basis: 500px;
+    height: 450px;
+}
+
+
+.FormChat{
     display: flex;
     flex-direction: column;
 }

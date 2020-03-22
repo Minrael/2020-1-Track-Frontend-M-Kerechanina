@@ -1,3 +1,11 @@
+img{
+    padding: 4px 4px 4px 4px;
+    height: 40px;
+    width: 40px;
+    border: none;
+}
+
+
 .EmojiTool {
     display: inline-block;
 }

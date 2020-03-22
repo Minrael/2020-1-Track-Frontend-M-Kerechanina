@@ -6,12 +6,13 @@ import submit from '../static/mailsend_104372.png';
 import attach from '../static/attach-rotated_icon-icons.com_68593.png';
 import emoji from '../static/mbrismileface_99462.png'
 import EmojiTool from './EmojiTool'
-import styles from '../styles/globalStyles.css'
+//import styles from '../styles/globalStyles.css'
+import stls from '../styles/FormInput.css'
 
 
 function  TemplateButton(props) {
     return (
-        <button onClick = { props.onClick }>
+        <button className = 'Button' onClick = { props.onClick }>
         <img alt = { props.alt } className = 'imgButton' src={ props.Image } />
         </button>
     )
@@ -61,10 +62,12 @@ function FormInput(props) {
     return (
         <section className = 'chat'>
             {emojiView === true ? <EmojiTool handleEmojiClick = { handleEmojiClick }/>:<div></div>}
-            <input value={inputMessage} className = 'input-form' placeholder = { placeholder } style = { styles } onChange = { handleInputChange } onKeyPress = { handleKeyPress } />
-            < TemplateButton alt = 'submit-button' Image = { submit } onClick = { handleSubmit } />
-            < TemplateButton alt = 'attach-button' Image = { attach } onClick = { handleGetMessages}/>
-            < TemplateButton alt = 'emoji-button' Image = { emoji } onClick = { handleEmojiView}/>
+            <section className = 'MessageForm'>
+                <input value={inputMessage} className = 'input-form' placeholder = { placeholder } style = { stls } onChange = { handleInputChange } onKeyPress = { handleKeyPress } />
+                < TemplateButton alt = 'emoji-button' Image = { emoji } onClick = { handleEmojiView}/>
+                < TemplateButton alt = 'attach-button' Image = { attach } onClick = { handleGetMessages}/>
+                < TemplateButton alt = 'submit-button' Image = { submit } onClick = { handleSubmit } />
+            </section>   
         </section>
         )
 }

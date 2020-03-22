@@ -1,0 +1,57 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8E24AA;
+    width: 100%;
+    height: 100px;
+}
+
+.user-info {
+    display: flex;
+    flex-grow: 2;
+    align-items: center;
+    justify-content: center;
+}
+
+.divAvatar {
+    padding: 30px;
+}
+.avatar {
+    height: 80px;
+    width: 80px;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-name {
+    font-size: 30px;
+    color:white;
+    align-content: center;
+    align-self: center;
+}
+.last-visit {
+    font-size: 15px;
+    color:white;
+    align-self: center;
+}
+
+img {
+    height: 40px;
+    width: 70px;
+    border: none;
+}
+.back-arrow {
+    filter: invert(1);
+}
+
+.search-button{
+    filter: invert(1);
+}
+
+.more-button{
+    filter: invert(1);
+}

@@ -12,27 +12,22 @@ import {
 function IndexPage () {
     return (
         <section className = 'index-page'>
-          <h1>Messenger</h1>
+          <div className = 'AppName'>Messenger</div>
           <Link to={`${process.env.PUBLIC_URL}/user/signin`}> Sign in </Link>
           <Link to={`${process.env.PUBLIC_URL}/user/signup`}>Sign up</Link>
         </section>
         )
 }
 
-function SignIn () {
+export function SignIn () {
     return (
         <section className = 'user-page'>
-          <h1>User Menu</h1>
-          <ul>
-            <li>
-              <Link to={`${process.env.PUBLIC_URL}/chats`}> Chats </Link>
-            </li>
-            <li>
-              <Link to={`${process.env.PUBLIC_URL}/profile`}>Profile</Link>
-            </li>
-          </ul>
+          <div className = 'AppName'>User Menu</div>
+          <Link to={`${process.env.PUBLIC_URL}/chats`}> Chats </Link>
+          <Link to={`${process.env.PUBLIC_URL}/profile`}>Profile</Link>
         </section>
-        )
+    )
+        
 }
 
 class App extends Component {

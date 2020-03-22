@@ -1,8 +1,59 @@
 import React from 'react'
-//import styles from '../styles/globalStyles.css'
+import {Link} from 'react-router-dom';
+import styles from '../styles/Header.css'
+import back_arrow from '../static/left-arrow-key.svg';
+import search from '../static/search.svg';
+import more from '../static/more.svg';
+import avatar from '../static/american.svg';
+
+
+/*function HeaderButton(){
+
+}*/
+
+function BackButton() {
+    return (
+        <Link to={`${process.env.PUBLIC_URL}/user/signin`}>
+          <div className = 'back-arrow'>
+            <img alt='back-arrow' src = { back_arrow } />
+          </div>
+        </Link>
+    )
+}
+
+function SearchButton() {
+    return(
+        <div className = 'search-button'><img alt = 'search-button' src = { search } /></div>
+    )
+}
+
+function MoreButton() {
+    return(
+        <div className = 'more-button'><img alt = 'more-button' src = { more } /></div>
+    )
+}
+
+function UserInfo() {
+    return(
+    <div className='user-info'>
+        <div className = 'divAvatar'>
+            <img className = 'avatar' alt='avatar' src = { avatar } />
+        </div>
+        <div className = 'name' styles = {styles}>
+            <div className = 'user-name'>Дженнифер</div>
+            <div className = 'last-visit'>была 2 часа назад</div>
+        </div>
+    </div>
+    )
+}
 
 export default function Header() {
     return (
-        <div height = '10%' width = '100%' color = 'red' className = 'rectangle'/>
+        <div className='header'>
+            <BackButton/>
+            <UserInfo/>
+            <SearchButton/>
+            <MoreButton/>
+        </div>
         )
 }
