@@ -109,6 +109,9 @@ module.exports = function(webpackEnv) {
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
       },
+      {
+        loader: 'css-sprite-loader'
+      }
     ].filter(Boolean);
     if (preProcessor) {
       loaders.push(
@@ -319,10 +322,6 @@ module.exports = function(webpackEnv) {
         PnpWebpackPlugin.moduleLoader(module),
       ],
     },
-    module: {
-      rules: [{ test: /\.css$/, use: ['style-loader', 'css-loader', 'css-sprite-loader'] }],
-    },
-    plugins: [new CSSSpritePlugin()],
     module: {
       strictExportPresence: true,
       rules: [
@@ -579,6 +578,7 @@ module.exports = function(webpackEnv) {
           filename: 'static/css/[name].[contenthash:8].css',
           chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
         }),
+        new CSSSpritePlugin(),
       // Generate an asset manifest file with the following content:
       // - "files" key: Mapping of all asset filenames to their corresponding
       //   output file so that tools can pick it up without having to parse

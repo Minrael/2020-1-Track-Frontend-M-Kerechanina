@@ -14,14 +14,6 @@ const sockHost = process.env.WDS_SOCKET_HOST;
 const sockPath = process.env.WDS_SOCKET_PATH; // default: '/sockjs-node'
 const sockPort = process.env.WDS_SOCKET_PORT;
 
-const CSSSpritePlugin = require('css-sprite-loader').Plugin;
-
-module.exports = {
-    module: {
-      rules: [{ test: /\.css$/, use: ['style-loader', 'css-loader', 'css-sprite-loader'] }],
-    },
-    plugins: [new CSSSpritePlugin()]
-  };
 
 module.exports = function(proxy, allowedHost) {
   return {

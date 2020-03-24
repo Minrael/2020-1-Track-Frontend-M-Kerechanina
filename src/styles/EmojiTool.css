@@ -7,7 +7,7 @@ img{
 
 
 .EmojiTool {
-    display: inline-block;
+    display: flex;
 }
 
 .emoji {

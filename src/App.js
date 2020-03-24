@@ -13,8 +13,8 @@ function IndexPage () {
     return (
         <section className = 'index-page'>
           <div className = 'AppName'>Messenger</div>
-          <Link to={`${process.env.PUBLIC_URL}/user/signin`}> Sign in </Link>
-          <Link to={`${process.env.PUBLIC_URL}/user/signup`}>Sign up</Link>
+          <Link to='/user/signin'> Sign in </Link>
+          <Link to='/user/signup'>Sign up</Link>
         </section>
         )
 }
@@ -23,8 +23,8 @@ export function SignIn () {
     return (
         <section className = 'user-page'>
           <div className = 'AppName'>User Menu</div>
-          <Link to={`${process.env.PUBLIC_URL}/chats`}> Chats </Link>
-          <Link to={`${process.env.PUBLIC_URL}/profile`}>Profile</Link>
+          <Link to='/chats'> Chats </Link>
+          <Link to='/profile'>Profile</Link>
         </section>
     )
         
@@ -41,11 +41,11 @@ constructor (props){
 
 render() {
   return (
-    <Router>
+    <Router basename = {process.env.MODE_ENV === 'production'? '/2020-1-Track-Frontend-M-Kerechanina/':'/'}>
       <div>
-        <Route exact path={process.env.PUBLIC_URL} component = { IndexPage } />
-        <Route exact path={`${process.env.PUBLIC_URL}/user/signin`} component = { SignIn } />
-        <Route exact path={`${process.env.PUBLIC_URL}/chats`} component = { FormChat } />
+        <Route exact path='/' component = { IndexPage } />
+        <Route exact path='/user/signin' component = { SignIn } />
+        <Route exact path='/chats' component = { FormChat } />
       </div>
     </Router>
     )
