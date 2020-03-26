@@ -50,6 +50,7 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 
+const sourceRoot = path.resolve(__dirname, 'src');
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -162,9 +163,13 @@ module.exports = function(webpackEnv) {
       // initialization, it doesn't blow up the WebpackDevServer client, and
       // changing JS code would still trigger a refresh.
     ].filter(Boolean),
+
+    entry: {
+      create: sourceRoot + '/index.js'
+    },
     output: {
       // The build folder.
-      path: isEnvProduction ? paths.appBuild : undefined,
+      path: path.resolve(__dirname, 'dist'),
       // Add /* filename */ comments to generated require()s in the output.
       pathinfo: isEnvDevelopment,
       // There will be one main bundle, and one file per asynchronous chunk.

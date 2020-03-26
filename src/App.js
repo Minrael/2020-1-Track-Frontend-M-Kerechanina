@@ -2,9 +2,8 @@ import React, { Component} from 'react';
 import './App.css';
 import FormChat from './components/FormChat.js'
 import { 
-    BrowserRouter as Router, 
+    Router, 
     Route,
-    //Switch,
     Link
 } from 'react-router-dom';
 
