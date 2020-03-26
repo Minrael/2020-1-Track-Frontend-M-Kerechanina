@@ -7,13 +7,9 @@ import more from '../static/more.svg';
 import avatar from '../static/american.svg';
 
 
-/*function HeaderButton(){
-
-}*/
-
-export function BackButton() {
+export const BackButton = () => {
     return (
-        <Link to={`${process.env.PUBLIC_URL}/user/signin`}>
+        <Link to='/user/signin'>
           <div className = 'back-arrow'>
             <img alt='back-arrow' src = { back_arrow } />
           </div>
@@ -21,19 +17,19 @@ export function BackButton() {
     )
 }
 
-export function SearchButton() {
+export const SearchButton = () => {
     return(
         <div className = 'search-button'><img alt = 'search-button' src = { search } /></div>
     )
 }
 
-export function MoreButton() {
+export const MoreButton = () => {
     return(
         <div className = 'more-button'><img alt = 'more-button' src = { more } /></div>
     )
 }
 
-export function UserInfo() {
+export const UserInfo = () => {
     return(
     <div className='user-info'>
         <div className = 'divAvatar'>

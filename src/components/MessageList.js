@@ -2,33 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getMessages } from '../actions/getMessage';
 
-function MessageList(props) {
+const MessageList = (props) => {
 
     const { messages } = props.msgs;
-    let msgs_render = [];
 
-    let i = 0;
-    if (typeof(messages)!=='undefined'){
-        messages.forEach( function(msg) {
-            if (msg.indexOf('&#') === -1)  {
-                let messageBox = (<p key = {i} className = 'message'>{ msg }</p>);
-                msgs_render.push(messageBox);
-                i += 1;
-            }
-            else {
-                let withEmoji = msg.replace(/&#(\w+)#&/g, ' <i class="$1 emoji"></i> ');
-                let messageBox = (<p key = {i} className = 'message' dangerouslySetInnerHTML={{__html:withEmoji}}></p>);
-                msgs_render.push(messageBox);
-                i += 1;
-            }
-        });
-
+    const replaceEmoji = (msg, key) => {
+        let withEmoji = msg.replace(/&#(\w+)#&/g, ' <i class="$1 emoji"></i> ');
+        let messageBox = (<p key = {key} className = 'message' dangerouslySetInnerHTML={{__html:withEmoji}}></p>);
+        return(messageBox);
+    } 
+    
     return ( 
         <div className='Message-list'>
-            { msgs_render }
+            { messages && messages.map(msg => replaceEmoji(msg, Math.floor(Math.random()*10000))) }
         </div>
-    );
-    }  
+    );  
 }
 
 const mapStateToProps = (state) => ({

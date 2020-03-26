@@ -18,30 +18,30 @@ img{
 }
 
 
-i.smile {
+.smile {
     background: url('../static/slightly-smiling-face.png?sprite');
 }
-i.sad {
+.sad {
     background: url('../static/slightly-frowning-face.png?sprite');
 }
-i.surprised {
+.surprised {
     background: url('../static/hushed-face.png?sprite');
 }
-i.angry{
+.angry{
     background: url('../static/angry-face.png?sprite');
 }
-i.happy {
+.happy {
     background: url('../static/beaming-face-with-smiling-eyes.png?sprite');
 }
-i.kiss {
+.kiss {
     background: url('../static/face-blowing-a-kiss.png?sprite');
 }
-i.mask{
+.mask{
     background: url('../static/face-with-medical-mask.png?sprite');
 }
-i.tongue{
+.tongue{
     background: url('../static/face-with-tongue.png?sprite');
 }
-i.crying{
+.crying{
     background: url('../static/loudly-crying-face.png?sprite');
 }

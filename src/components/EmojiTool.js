@@ -2,24 +2,24 @@ import React from 'react';
 import styles from '../styles/EmojiTool.css'
 
 
-function Emoji(props){
+const Emoji = ({name, handleClick}) => {
   return (
-    <i className={props.name + " emoji"} onClick={() => props.onClick(props.name)}/>
+    <i className={`${name} emoji`} onClick={() => handleClick(name)}/>
   );
 }
 
-function EmojiTool(props) {
+const EmojiTool = (props) => {
     return(
         <div className = {styles.EmojiTool}>
-            <Emoji name='smile' onClick={props.handleEmojiClick}/>
-            <Emoji name='sad' onClick={props.handleEmojiClick}/>
-            <Emoji name='surprised' onClick={props.handleEmojiClick}/>
-            <Emoji name='angry' onClick={props.handleEmojiClick}/>
-            <Emoji name='happy' onClick={props.handleEmojiClick}/>
-            <Emoji name='kiss' onClick={props.handleEmojiClick}/>
-            <Emoji name='mask' onClick={props.handleEmojiClick}/>
-            <Emoji name='tongue' onClick={props.handleEmojiClick}/>
-            <Emoji name='crying' onClick={props.handleEmojiClick}/>
+            <Emoji name='smile' handleClick={props.handleEmojiClick}/>
+            <Emoji name='sad' handleClick={props.handleEmojiClick}/>
+            <Emoji name='surprised' handleClick={props.handleEmojiClick}/>
+            <Emoji name='angry' handleClick={props.handleEmojiClick}/>
+            <Emoji name='happy' handleClick={props.handleEmojiClick}/>
+            <Emoji name='kiss' handleClick={props.handleEmojiClick}/>
+            <Emoji name='mask' handleClick={props.handleEmojiClick}/>
+            <Emoji name='tongue' handleClick={props.handleEmojiClick}/>
+            <Emoji name='crying' handleClick={props.handleEmojiClick}/>
         </div>
     );
 }
