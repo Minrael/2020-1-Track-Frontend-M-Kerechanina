@@ -6,6 +6,10 @@ import {
     Route,
     Link
 } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
+
+export const history = createBrowserHistory();
 
 
 function IndexPage () {
@@ -40,7 +44,7 @@ constructor (props){
 
 render() {
   return (
-    <Router basename = {process.env.MODE_ENV === 'production'? '/2020-1-Track-Frontend-M-Kerechanina/':'/'}>
+    <Router history = { history } basename = {process.env.MODE_ENV === 'production'? '/2020-1-Track-Frontend-M-Kerechanina/':'/'}>
       <div>
         <Route exact path='/' component = { IndexPage } />
         <Route exact path='/user/signin' component = { SignIn } />
