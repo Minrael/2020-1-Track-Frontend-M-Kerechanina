@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getMessages } from '../actions/getMessage';
+import messageToBox from './MessageBox';
 
 const MessageList = (props) => {
 
@@ -8,7 +9,7 @@ const MessageList = (props) => {
 
     const replaceEmoji = (msg, key) => {
         let withEmoji = msg.replace(/&#(\w+)#&/g, ' <i class="$1 emoji"></i> ');
-        let messageBox = (<p key = {key} className = 'message' dangerouslySetInnerHTML={{__html:withEmoji}}></p>);
+        let messageBox = messageToBox(withEmoji, key);
         return(messageBox);
     } 
     

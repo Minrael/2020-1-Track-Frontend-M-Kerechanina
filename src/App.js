@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import './App.css';
 import FormChat from './components/FormChat.js'
 import { 
@@ -33,7 +33,7 @@ export function SignIn () {
         
 }
 
-class App extends Component {
+class App extends React.Component {
 
 constructor (props){
     super(props);
@@ -44,12 +44,13 @@ constructor (props){
 
 render() {
   return (
-    <Router history = { history } basename = {process.env.MODE_ENV === 'production'? '/2020-1-Track-Frontend-M-Kerechanina/':'/'}>
-      <div>
+    <Router 
+    history = { history } 
+    /*basename = {process.env.MODE_ENV === 'development'? '/':'/2020-1-Track-Frontend-M-Kerechanina'} */
+    >
         <Route exact path='/' component = { IndexPage } />
         <Route exact path='/user/signin' component = { SignIn } />
         <Route exact path='/chats' component = { FormChat } />
-      </div>
     </Router>
     )
 }

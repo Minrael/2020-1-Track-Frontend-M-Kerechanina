@@ -2,11 +2,12 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="search-button"
+  className="divAvatar"
 >
   <img
-    alt="search-button"
-    src="search.svg"
+    alt="avatar"
+    className="avatar"
+    src="american.svg"
   />
 </div>
 `;
