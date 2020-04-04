@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import MessageBox from '../components/MessageBox'
+import MessageBox from '../components/MessageList/MessageBox'
 
 it('renders correctly', () => {
     const message = renderer

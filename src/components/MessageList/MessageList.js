@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getMessages } from '../actions/getMessage';
+import { getMessages } from '../../actions/getMessage';
 import messageToBox from './MessageBox';
 
 const MessageList = (props) => {

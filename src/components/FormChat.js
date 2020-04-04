@@ -1,10 +1,8 @@
 import React from 'react';
 import styles from '../styles/globalStyles.css';
-import FormInput from './FormInput';
-import MessageList from './MessageList'
+import FormInput from './FormInput/FormInput';
+import MessageList from './MessageList/MessageList'
 import Header from './Header/Header'
-//import styled from '@emotion/styled'
-
 
 export default function FormChat() {
     return (

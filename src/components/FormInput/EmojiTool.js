@@ -1,12 +1,6 @@
 import React from 'react';
-import styles from '../styles/EmojiTool.css'
-
-
-const Emoji = ({name, handleClick}) => {
-  return (
-    <i className={`${name} emoji`} onClick={() => handleClick(name)}/>
-  );
-}
+import styles from '../../styles/EmojiTool.css'
+import Emoji from './Emoji'
 
 const EmojiTool = (props) => {
     return(
