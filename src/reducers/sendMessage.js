@@ -1,9 +1,11 @@
 import {
   SEND_MESSAGE_REQUEST,
-  SEND_MESSAGE_SUCCESS,
-  SEND_MESSAGE_FAILURE,
+  //TODO: раскомментить в следующей дз
+  //SEND_MESSAGE_SUCCESS,
+  //SEND_MESSAGE_FAILURE,
 
 } from '../constants/ActionTypes'
+
 
 const initialState = {
     loading: false,
@@ -21,7 +23,7 @@ export default (state=initialState, action) => {
                 error: null,
             }
         }
-            break;
+            //break;
         /*case SEND_MESSAGE_SUCCESS:
             console.log('success' + state);
             return {

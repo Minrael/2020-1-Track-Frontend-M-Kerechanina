@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from '../styles/globalStyles.css';
-import FormInput from './FormInput';
-import MessageList from './MessageList'
-import Header from './Header'
-//import styled from '@emotion/styled'
-
+import FormInput from './FormInput/FormInput';
+import MessageList from './MessageList/MessageList'
+import Header from './Header/Header'
 
 export default function FormChat() {
     return (
-    <section>
+    <section className={styles.FormChat}>
+      <Header/>
       <MessageList />
       <FormInput placeholder = 'Cообщение'/>
     </section>

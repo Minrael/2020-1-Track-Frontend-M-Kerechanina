@@ -1,7 +1,8 @@
 import {
   GET_MESSAGE_REQUEST,
-  GET_MESSAGE_SUCCESS,
-  GET_MESSAGE_FAILURE,
+  //TODO: раскомментить в следующей дз
+  //GET_MESSAGE_SUCCESS, 
+  //GET_MESSAGE_FAILURE,
 
 } from '../constants/ActionTypes'
 

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="back-button"
+  >
+    <img
+      alt="back-button"
+      src="left-arrow-key.svg"
+    />
+  </div>
+  <div
+    className="user-info"
+  >
+    <div
+      className="divAvatar"
+    >
+      <img
+        alt="avatar"
+        className="avatar"
+        src="american.svg"
+      />
+    </div>
+    <div
+      className="name"
+      styles={Object {}}
+    >
+      <div
+        className="user-name"
+      >
+        Дженнифер
+      </div>
+      <div
+        className="last-visit"
+      >
+        была 2 часа назад
+      </div>
+    </div>
+  </div>
+  <div
+    className="search-button"
+  >
+    <img
+      alt="search-button"
+      src="search.svg"
+    />
+  </div>
+  <div
+    className="more-button"
+  >
+    <img
+      alt="more-button"
+      src="more.svg"
+    />
+  </div>
+</div>
+`;

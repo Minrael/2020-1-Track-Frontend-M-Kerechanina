@@ -1,0 +1,47 @@
+img{
+    padding: 4px 4px 4px 4px;
+    height: 40px;
+    width: 40px;
+    border: none;
+}
+
+
+.EmojiTool {
+    display: flex;
+}
+
+.emoji {
+  background: no-repeat;
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+}
+
+
+.smile {
+    background: url('../static/slightly-smiling-face.png?sprite');
+}
+.sad {
+    background: url('../static/slightly-frowning-face.png?sprite');
+}
+.surprised {
+    background: url('../static/hushed-face.png?sprite');
+}
+.angry{
+    background: url('../static/angry-face.png?sprite');
+}
+.happy {
+    background: url('../static/beaming-face-with-smiling-eyes.png?sprite');
+}
+.kiss {
+    background: url('../static/face-blowing-a-kiss.png?sprite');
+}
+.mask{
+    background: url('../static/face-with-medical-mask.png?sprite');
+}
+.tongue{
+    background: url('../static/face-with-tongue.png?sprite');
+}
+.crying{
+    background: url('../static/loudly-crying-face.png?sprite');
+}

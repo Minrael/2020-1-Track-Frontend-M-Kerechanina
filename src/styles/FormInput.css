@@ -1,0 +1,31 @@
+.chat {
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.MessageForm{
+    display:flex;
+    height: 7vh;
+}
+.input-form {
+    --main-color: white;
+    display:flex;
+    width: calc(100%-2px);
+    font-size: 40px;
+    height: 5vh;
+    align-self: flex-end;
+    flex-grow: 1;
+    outline: none;
+    border: 0;
+    background-color: var(--main-color);
+    align-items: center;
+}
+
+.Button{
+    background: white;
+    border-color: white;
+}
+
+/*.Button:hover{
+    background: #8E24AA;
+}*/

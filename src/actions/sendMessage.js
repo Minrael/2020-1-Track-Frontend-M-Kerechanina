@@ -1,7 +1,8 @@
 import {
   SEND_MESSAGE_REQUEST,
-  SEND_MESSAGE_SUCCESS,
-  SEND_MESSAGE_FAILURE,
+  //TODO: раскомментить в следующей дз
+  //SEND_MESSAGE_SUCCESS,
+  //SEND_MESSAGE_FAILURE,
 
 } from '../constants/ActionTypes'
 

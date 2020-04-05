@@ -1,41 +1,39 @@
-import React, { Component} from 'react';
+import React from 'react';
 import './App.css';
 import FormChat from './components/FormChat.js'
 import { 
-    BrowserRouter as Router, 
+    Router, 
     Route,
-    Switch,
     Link
 } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
+
+export const history = createBrowserHistory();
 
 
 function IndexPage () {
     return (
         <section className = 'index-page'>
-          <h1>Messenger</h1>
+          <div className = 'AppName'>Messenger</div>
           <Link to='/user/signin'> Sign in </Link>
           <Link to='/user/signup'>Sign up</Link>
         </section>
         )
 }
 
-function SignIn () {
+export function SignIn () {
     return (
         <section className = 'user-page'>
-          <h1>User Menu</h1>
-          <ul>
-            <li>
-              <Link to='/chats'> Chats </Link>
-            </li>
-            <li>
-              <Link to='/profile'>Profile</Link>
-            </li>
-          </ul>
+          <div className = 'AppName'>User Menu</div>
+          <Link to='/chats'> Chats </Link>
+          <Link to='/profile'>Profile</Link>
         </section>
-        )
+    )
+        
 }
 
-class App extends Component {
+class App extends React.Component {
 
 constructor (props){
     super(props);
@@ -46,12 +44,13 @@ constructor (props){
 
 render() {
   return (
-    <Router>
-      <div>
+    <Router 
+    history = { history } 
+    /*basename = {process.env.MODE_ENV === 'development'? '/':'/2020-1-Track-Frontend-M-Kerechanina'} */
+    >
         <Route exact path='/' component = { IndexPage } />
         <Route exact path='/user/signin' component = { SignIn } />
         <Route exact path='/chats' component = { FormChat } />
-      </div>
     </Router>
     )
 }
