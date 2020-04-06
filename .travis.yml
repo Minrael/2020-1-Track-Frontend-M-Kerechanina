@@ -3,7 +3,7 @@ node_js:
   - "stable"
 
 branches:
-  - HomeWork1
+  - HomeWork2
 
 script:
   - npm run test
@@ -18,4 +18,4 @@ deploy:
     branch:
       - master
       - devel
-      - HomeWork1
+      - HomeWork2
