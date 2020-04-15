@@ -54,9 +54,9 @@ const FormInput = (props) => {
             {emojiView && <EmojiTool handleEmojiClick = { handleEmojiClick }/>}
             <section className = 'MessageForm'>
                 <input value={inputMessage} className = 'input-form' placeholder = { placeholder } style = { stls } onChange = { handleInputChange } onKeyPress = { handleKeyPress } />
-                <TemplateButton alt = 'emoji-button' Image = { emoji } onClick = { handleEmojiView}/>
-                <TemplateButton alt = 'attach-button' Image = { attach } onClick = { handleGetMessages}/>
-                <TemplateButton alt = 'submit-button' Image = { submit } onClick = { handleSubmit }/>
+                <TemplateButton id = 'emoji' alt = 'emoji-button' Image = { emoji } onClick = { handleEmojiView}/>
+                <TemplateButton id = 'attach' alt = 'attach-button' Image = { attach } onClick = { handleGetMessages}/>
+                <TemplateButton id = 'submit' alt = 'submit-button' Image = { submit } onClick = { handleSubmit }/>
             </section>   
         </section>
         )

@@ -39,6 +39,7 @@
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
     "mini-css-extract-plugin": "0.9.0",
+    "node-fetch": "^2.6.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.6.0",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -71,9 +72,10 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "CI=true node scripts/test.js --env=jsdom",
+    "test": "CI=true node scripts/test.js --env=jsdom && npm run test:endtoend",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "test:endtoend": "jest -c endtoend/jest.config.js",
     "ci": "npm run test && npm run build"
   },
   "eslintConfig": {
@@ -151,6 +153,8 @@
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^2.1.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   }
