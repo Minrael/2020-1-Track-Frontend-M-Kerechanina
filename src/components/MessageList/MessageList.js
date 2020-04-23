@@ -7,10 +7,10 @@ const MessageList = (props) => {
 
     const { messages } = props.msgs;
 
-    /*const [MessagesBack, setMessagesBack] = useState([])
+    //const [MessagesBack, setMessagesBack] = useState([])
 
-    useEffect( () => {
-        fetch(`https://maria-kerechanina.chickenkiller.com/chats/chat_message_list/`)
+   /* useEffect( () => {
+        fetch(`/chats/chat_message_list/`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
@@ -26,8 +26,8 @@ const MessageList = (props) => {
     
     return ( 
         <div className='Message-list'>
-            { /*MessagesBack && MessagesBack.map(msg => replaceEmoji(msg['content'], Math.floor(Math.random()*10000))) */
-             messages && messages.map(msg => replaceEmoji(msg, Math.floor(Math.random()*10000))) }
+            { /*MessagesBack && MessagesBack.map(msg => replaceEmoji(msg['content'], Math.floor(Math.random()*10000)))*/
+            messages && messages.map(msg => replaceEmoji(msg, Math.floor(Math.random()*10000))) }
         </div>
     );  
 }
