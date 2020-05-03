@@ -1,33 +1,53 @@
 import {
   SEND_MESSAGE_REQUEST,
-  //TODO: раскомментить в следующей дз
-  //SEND_MESSAGE_SUCCESS,
-  //SEND_MESSAGE_FAILURE,
-
+  SEND_MESSAGE_SUCCESS,
+  SEND_MESSAGE_FAILURE,
 } from '../constants/ActionTypes'
 
 
-const sendMessageStarted = (data) => ({
-    type: SEND_MESSAGE_REQUEST,
-    payload: data/*messageList.push(data)*/,
+const sendMessageSuccess = (data) => ({
+    type: SEND_MESSAGE_SUCCESS,
+    payload: data,
   })
 
-/*const sendMessageSuccess = () => ({
+const sendMessageRequest = () => ({
     type: SEND_MESSAGE_REQUEST,
   })
 
 const sendMessageFailure = (error) => ({
-    type: SEND_MESSAGE_REQUEST,
+    type: SEND_MESSAGE_FAILURE,
     payload: {
       error: error,
     }
-  })*/
+  })
 
 export const sendMessage = (message) => {
     return (dispatch, getState) => {
         console.log("sendMessage_action ");
         console.log(getState());
-        dispatch(sendMessageStarted(message));
+
+        const data = new FormData()
+        data.append('user', 1);
+        data.append('chat', 1)
+        data.append('content', message)
+
+        //WORKS WITH BACKEND
+        //dispatch(sendMessageRequest())
+        // fetch(`/chats/send_message/`,{
+        //   method: 'POST', 
+        //   body: data,
+        //   mode: 'no-cors'
+        // })
+        // .then(resp => resp.json())
+        // .then(() => dispatch(sendMessageSuccess(message)))
+        // .catch((e) => dispatch(sendMessageFailure(e.message)))
+        try{
+          dispatch(sendMessageRequest());
+          dispatch(sendMessageSuccess(message));
+        }
+        catch (e) {
+            dispatch(sendMessageFailure(e.message))
+        }
     }
 }
 

@@ -13,6 +13,7 @@ const FormInput = (props) => {
 
     const {placeholder, sendMsg, getMsgs } = props
     const [inputMessage, setInputMessage] = useState(''); 
+
     const [emojiView, setEmojiView] = useState(false); 
 
     const handleSubmit = (event) => {

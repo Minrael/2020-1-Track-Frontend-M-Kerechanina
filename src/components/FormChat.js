@@ -3,8 +3,10 @@ import styles from '../styles/globalStyles.css';
 import FormInput from './FormInput/FormInput';
 import MessageList from './MessageList/MessageList'
 import Header from './Header/Header'
+//import SearchMessage from './SearchMessage';
 
 export default function FormChat() {
+
     return (
     <section className={styles.FormChat}>
       <Header/>
