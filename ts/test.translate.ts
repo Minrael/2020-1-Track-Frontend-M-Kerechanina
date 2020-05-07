@@ -6,7 +6,7 @@ import {TranslateUtils} from './utils/index';
 //console.log(langValidate(['my name is john cena'], 'en-ru'));
 
 
-    TranslateUtils(['my name is john cena'],'ee-ru')
+    TranslateUtils(['my name is john cena'],'en-ru')
     .then((data:TApiResponse) => {
         console.log(data);
     });
