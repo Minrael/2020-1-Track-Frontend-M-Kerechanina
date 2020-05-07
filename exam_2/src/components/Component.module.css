@@ -1,0 +1,15 @@
+.translateButton {
+    width: 100px;
+    height: 100px;
+}
+
+.inputForm {
+    flex-grow: 1;
+    height: 100px;
+}
+
+.area {
+    display: flex;
+    width: 100%;
+
+}
