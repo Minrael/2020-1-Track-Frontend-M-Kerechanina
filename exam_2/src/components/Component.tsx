@@ -29,6 +29,11 @@ const Component = () => {
   const handleChange = (event:any/*:React.SyntheticEvent<HTMLInputElement>*/) => {
       event.preventDefault();
       setTextValue(event.target.value);
+      setState({
+        langFrom: 'en',
+        langTo: 'ru',
+        langList: ['ru', 'en']
+      } as T.IState)
   }
   // const handleSubmit = () => {
   //     if (textValue !== '') {
@@ -51,7 +56,7 @@ const Component = () => {
         console.log(data);
         setTextTranslated(data.text[0])
       });
-  }, [textValue])
+  }, [textValue, state.langFrom, state.langTo])
 
 
   return(
