@@ -9,7 +9,6 @@ addons:
       - libnss3
 
 script:
-  - npm run test
   - npm run build
 
 deploy:
