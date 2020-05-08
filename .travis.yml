@@ -9,7 +9,7 @@ addons:
       - libnss3
 
 branches:
-  - HomeWork2
+  - hw7
 
 script:
   - npm run test
@@ -24,7 +24,7 @@ deploy:
     branch:
       - master
       - devel
-      - HomeWork2
+      - hw7
 
 before_install:
   # Enable user namespace cloning
