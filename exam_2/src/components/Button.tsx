@@ -1,13 +1,12 @@
 import * as React from 'react'
+import * as T from '../types/Button.types'
+import styles from '../styles/Button.module.css'
 
-
-const Button = () => {
-  
-
+const Button = (props:T.IButtonProps) => {
 
   return(
     <div>
-      <button></button>
+      <button className = {styles.Button}>{props.buttonName}</button>
     </div>
   )
 }

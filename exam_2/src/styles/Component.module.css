@@ -1,0 +1,42 @@
+.area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.inputLangArea {
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+.outputLangArea{
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+
+.buttonsContainer{
+    display: flex;
+}
+.textConteiner{
+    display: flex;
+    border: 2px solid red;
+    justify-content: center;
+}
+
+
+.selectMenu {
+    background-color: white;
+    width: 40px;
+    border: 2px solid white;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+}
+.selectMenu:hover {
+    border: 2px solid red;
+}
+
+
+
+
