@@ -10,15 +10,6 @@ const Component = () => {
   const [textTranslated, setTextTranslated] = React.useState('')
 
   const [lDict, setLDict] = React.useState({
-    "af":"Afrikaans",
-    "am":"Amharic",
-    "ar":"Arabic",
-    "az":"Azerbaijani",
-    "ba":"Bashkir",
-    "be":"Belarusian",
-    "bg":"Bulgarian",
-    "ru":"Russian",
-    "en":"English"
   })
  
   const [state, setState] = React.useState({
@@ -26,38 +17,42 @@ const Component = () => {
     langTo: 'ru',
     langList: ['ru', 'en'],
     langNamesList: ['Russian', 'English'],
-    isLangDetect: false
+    isLangDetect: false,
+    isLangsLoaded: false
   } as T.IState)
 
   React.useEffect(() => {
-    //if (lDict.keys.length)
-   console.log(typeof lDict)
-    // getLanguages()    
-    // .then((data:any) => {
-    //   console.log(data);
-    //   setLDict(data.langs)
-    // });
-  }, [lDict])
-  
-  const langsToList = (LanguagesDict:T.ILangDict) => {
-    const listShortLangs = [];
-    const listLongLangs = [];
-    for (let key in LanguagesDict) {
-      listShortLangs.push(key);
-      listLongLangs.push(LanguagesDict[key])
+    const langsToList = (LanguagesDict:T.ILangDict) => {
+      const listShortLangs = [];
+      const listLongLangs = [];
+      for (let key in LanguagesDict) {
+        listShortLangs.push(key);
+        listLongLangs.push(LanguagesDict[key])
+      }
+      setState({
+        ...state,
+        langList: listShortLangs,
+        langNamesList: listLongLangs
+      })
     }
-    setState({
-      ...state,
-      langList: listShortLangs,
-      langNamesList: listLongLangs
-    })
-  }
-
-  React.useEffect(() => {
     if (state.langList.length < 3) {
       langsToList(lDict);
     }
-  },[state.langList, state.langNamesList])
+
+  }, [lDict, state])
+
+  React.useEffect(() => {
+    if (!state.isLangsLoaded) {
+      getLanguages()    
+      .then((data:any) => {
+        setState({
+          ...state,
+          isLangsLoaded:true
+        })
+        setLDict(data.langs);
+      });
+    }
+  },[state.langList, state.langNamesList, lDict, state.isLangsLoaded, state])
 
   
   const LangsList = (props:T.ILangsList) => {
@@ -73,7 +68,6 @@ const Component = () => {
   const handleLangTOChange = (event:any) => {
     const lang = event.target.value;
     //const LongLang = 
-    //console.log(lang);
     setState({
       ...state,
       langTo: lang
@@ -83,7 +77,6 @@ const Component = () => {
   const handleLangFROMChange = (event:any) => {
     const lang = event.target.value;
     //const LongLang = 
-    //console.log(lang);
     setState({
       ...state,
       langFrom: lang
@@ -104,8 +97,9 @@ const Component = () => {
       });
   }, [textValue, state.langFrom, state.langTo])
 
+
+ // const detectLang:any = React.useRef(null)
   const handleClickDetect = (event:any) => {
-    console.log(state.isLangDetect);
     setState({
       isLangDetect: true,
       ...state

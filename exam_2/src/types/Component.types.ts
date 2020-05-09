@@ -12,7 +12,8 @@ export interface IState{
     langTo: string,
     langList: Array<String>,
     langNamesList: Array<String>,
-    isLangDetect: boolean
+    isLangDetect: boolean,
+    isLangsLoaded: boolean
 }
 
 export interface ILangDict {
