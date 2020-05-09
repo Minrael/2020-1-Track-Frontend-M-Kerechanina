@@ -4,6 +4,7 @@ import styles from '../styles/TranslateForm.module.css'
 import TextField from './TextField'
 import Button from './Button'
 import { TranslateUtils, getLanguages, detectLang }  from '../utils/index'
+import * as UT from '../utils/types'
 
 const TranslateForm = () => {
   const [textValue, setTextValue] = React.useState('')
@@ -110,9 +111,9 @@ const TranslateForm = () => {
       let ln = state.langFrom + '-' + state.langTo
       console.log(textValue, ln)
       TranslateUtils([textValue], ln )    
-      .then((data:any) => {
+      .then((data:UT.TApiResponse) => {
         console.log(data)
-        setTextTranslated(data.text[0])
+        setTextTranslated(data.text[0] as string)
       });
     }
   }
