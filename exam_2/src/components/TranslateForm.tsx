@@ -88,23 +88,22 @@ const TranslateForm = () => {
     setTextValue(event.target.value);
   }
 
-  const detectLanguage = () => {
-    detectLang([textValue])
-    .then((data:any) => {
-      console.log(data.lang)
-      setState({
-        ...state,
-        isLangDetect: false,
-        langFrom: data.lang
-      })
-    })
-  }
-
   React.useEffect(() => {
+    const detectLanguage = () => {
+      detectLang([textValue])
+      .then((data:any) => {
+        console.log(data.lang)
+        setState({
+          ...state,
+          isLangDetect: false,
+          langFrom: data.lang
+        })
+      })
+    }
     if (state.isLangDetect && textValue) {
       detectLanguage();
     }
-  }, [state.isLangDetect])
+  }, [state.isLangDetect, textValue, state])
 
   const translate = () => {
     if (textValue) {
@@ -123,17 +122,18 @@ const TranslateForm = () => {
       translate();
     }
   }
-
+ 
   return(
     <div className = {styles.area}>
       <div className = {styles.buttonsContainer}>
         <div className = {styles.inputLangArea}>
           <Button buttonName = "Detect lang" handleClick = {() => setState({...state, isLangDetect: true})} />
+          <button className={styles.langButton}>{state.langNamesList[state.langList.indexOf(state.langFrom)]}</button>
           <Button buttonName = "English" handleClick = {()=>setState({...state, langFrom: 'en'})}/>
-          <Button buttonName = "Russian" handleClick = {()=>setState({...state, langFrom: 'ru'})}/>
           <LangsList langList = {state.langNamesList} handleLangChange = {handleLangFROMChange}/>
         </div>
         <div className = {styles.outputLangArea}>
+          <button className={styles.langButton}>{state.langNamesList[state.langList.indexOf(state.langTo)]}</button>
           <Button buttonName = "Russian" handleClick = {()=>setState({...state, langTo: 'ru'})}/>
           <Button buttonName = "English" handleClick = {()=>setState({...state, langTo: 'en'})}/>
           <LangsList langList = {state.langNamesList} handleLangChange = {handleLangTOChange}/>
