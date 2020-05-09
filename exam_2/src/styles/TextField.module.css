@@ -1,8 +1,9 @@
 .textArea {
-    height: 200px;
-    width: calc(95% + 2vmin);
     border: none;
+    margin: 5px;
+    resize:none;
     font-size: 30px;
     flex-grow: 1;
     font-family: Fira Sans;
+    flex-basis: 600px;
 }

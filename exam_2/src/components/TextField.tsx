@@ -5,7 +5,7 @@ import styles from '../styles/TextField.module.css'
 const TextField = (props:T.ITextField) => {
 
     return(
-    <div>
+
       <textarea
         className = {styles.textArea}
         onChange = {props.handleChange} 
@@ -13,7 +13,7 @@ const TextField = (props:T.ITextField) => {
         placeholder = {props.placeholder} 
         value = {props.value}>
       </textarea>
-    </div>
+
   )
 }
 
