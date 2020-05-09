@@ -9,6 +9,7 @@ const TextField = (props:T.ITextField) => {
       <textarea
         className = {styles.textArea}
         onChange = {props.handleChange} 
+        onKeyPress = {props.handleKeyPress}
         placeholder = {props.placeholder} 
         value = {props.value}>
       </textarea>

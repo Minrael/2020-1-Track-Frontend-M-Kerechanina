@@ -2,16 +2,6 @@ export const APIKEY = 'trnsl.1.1.20200410T152145Z.673f67ec39260b6e.1b3b5262fe27d
 export const URLDOMEN = `https://translate.yandex.net/api/v1.5/tr.json`
 export const URLPATH = `/translate`
 
-//TODO: update Langs sometimes
-/*fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`)
-.then(response => response.json())
-.then(data =>JsonToEnum(data))*/
-
-export const getLanguages = () => {
-    return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`)
-    .then(response => response.json())
-    .then(data => data.json())
-}
 
 // export enum Langs {
 //     af = 'Afrikaans',

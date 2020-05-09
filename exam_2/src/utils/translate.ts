@@ -20,6 +20,16 @@ export const getLanguages = () => {
 	.catch(someError)
 }
 
+export const detectLang = (text:String[]): Promise<any> => {
+	let URLPRMS = `?key=${APIKEY}&text=${text}`
+	let API = URLDOMEN + `/detect` + URLPRMS;
+	return fetch(API)
+	.then(status)
+	.catch(someError)
+	.then(toJson)
+	.catch(someError)	
+}
+
 
 export default function translate (text: String[], lang: string, defLang:boolean=false): Promise<TApiResponse>{
 	//let data = langValidate(text, lang, defLang)

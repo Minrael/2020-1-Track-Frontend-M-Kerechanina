@@ -1,16 +1,15 @@
 import * as React from 'react'
-import * as T from '../types/Component.types'
-import styles from '../styles/Component.module.css'
+import * as T from '../types/TranslateForm.types'
+import styles from '../styles/TranslateForm.module.css'
 import TextField from './TextField'
 import Button from './Button'
-import { TranslateUtils, getLanguages }  from '../utils/index'
+import { TranslateUtils, getLanguages, detectLang }  from '../utils/index'
 
-const Component = () => {
+const TranslateForm = () => {
   const [textValue, setTextValue] = React.useState('')
   const [textTranslated, setTextTranslated] = React.useState('')
 
-  const [lDict, setLDict] = React.useState({
-  })
+  const [lDict, setLDict] = React.useState({})
  
   const [state, setState] = React.useState({
     langFrom: 'en',
@@ -38,7 +37,6 @@ const Component = () => {
     if (state.langList.length < 3) {
       langsToList(lDict);
     }
-
   }, [lDict, state])
 
   React.useEffect(() => {
@@ -66,20 +64,22 @@ const Component = () => {
   }
 
   const handleLangTOChange = (event:any) => {
-    const lang = event.target.value;
-    //const LongLang = 
+    const Longlang = event.target.value;
+    let ind = state.langNamesList.indexOf(Longlang);
+    const lang = state.langList[ind];
     setState({
       ...state,
-      langTo: lang
+      langTo: lang as string
     })
   }
 
   const handleLangFROMChange = (event:any) => {
-    const lang = event.target.value;
-    //const LongLang = 
+    const Longlang = event.target.value;
+    let ind = state.langNamesList.indexOf(Longlang);
+    const lang = state.langList[ind];
     setState({
       ...state,
-      langFrom: lang
+      langFrom: lang as string
     })
   }
 
@@ -88,44 +88,62 @@ const Component = () => {
     setTextValue(event.target.value);
   }
 
+  const detectLanguage = () => {
+    detectLang([textValue])
+    .then((data:any) => {
+      console.log(data.lang)
+      setState({
+        ...state,
+        isLangDetect: false,
+        langFrom: data.lang
+      })
+    })
+  }
+
   React.useEffect(() => {
+    if (state.isLangDetect && textValue) {
+      detectLanguage();
+    }
+  }, [state.isLangDetect])
+
+  const translate = () => {
+    if (textValue) {
       let ln = state.langFrom + '-' + state.langTo
       console.log(textValue, ln)
       TranslateUtils([textValue], ln )    
       .then((data:any) => {
-        if (textValue) setTextTranslated(data.text[0])
+        setTextTranslated(data.text[0])
       });
-  }, [textValue, state.langFrom, state.langTo])
+    }
+  }
 
-
- // const detectLang:any = React.useRef(null)
-  const handleClickDetect = (event:any) => {
-    setState({
-      isLangDetect: true,
-      ...state
-    });
-    console.log("detect-->");
-    console.log(state.isLangDetect);
-}
+  const handleKeyPress = (event:any) => {
+    if (event.charCode === 13) {
+      event.preventDefault();
+      translate();
+    }
+  }
 
   return(
     <div className = {styles.area}>
       <div className = {styles.buttonsContainer}>
         <div className = {styles.inputLangArea}>
-          <Button buttonName = "Detect lang" handleClick = {handleClickDetect} />
-          <Button buttonName = "English"/>
-          <Button buttonName = "Russian" />
-          <LangsList langList = {state.langList} handleLangChange = {handleLangFROMChange}/>
+          <Button buttonName = "Detect lang" handleClick = {() => setState({...state, isLangDetect: true})} />
+          <Button buttonName = "English" handleClick = {()=>setState({...state, langFrom: 'en'})}/>
+          <Button buttonName = "Russian" handleClick = {()=>setState({...state, langFrom: 'ru'})}/>
+          <LangsList langList = {state.langNamesList} handleLangChange = {handleLangFROMChange}/>
         </div>
         <div className = {styles.outputLangArea}>
-          <Button buttonName = "Russian"/>
-          <Button buttonName = "English"/>
-          <LangsList langList = {state.langList} handleLangChange = {handleLangTOChange}/>
+          <Button buttonName = "Russian" handleClick = {()=>setState({...state, langTo: 'ru'})}/>
+          <Button buttonName = "English" handleClick = {()=>setState({...state, langTo: 'en'})}/>
+          <LangsList langList = {state.langNamesList} handleLangChange = {handleLangTOChange}/>
         </div>
       </div>
       <div className = {styles.textConteiner}>
         <TextField 
-          handleChange = {handleInputChange}/>
+          handleChange = {handleInputChange}
+          handleKeyPress = {handleKeyPress}  
+        />
         <TextField
          value = {textTranslated}/>
       </div>
@@ -133,4 +151,4 @@ const Component = () => {
   )
 }
 
-export default Component
+export default TranslateForm

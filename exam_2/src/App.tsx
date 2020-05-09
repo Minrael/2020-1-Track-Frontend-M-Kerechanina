@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Component from './components/Component'
+import TranslateForm from './components/TranslateForm'
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <div>TechnoTrack Translate</div>
       </header>
-        <Component/>
+        <TranslateForm/>
     </div>
   );
 }
