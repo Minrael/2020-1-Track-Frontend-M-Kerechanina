@@ -111,6 +111,7 @@ const TranslateForm = () => {
       console.log(textValue, ln)
       TranslateUtils([textValue], ln )    
       .then((data:any) => {
+        console.log(data)
         setTextTranslated(data.text[0])
       });
     }
