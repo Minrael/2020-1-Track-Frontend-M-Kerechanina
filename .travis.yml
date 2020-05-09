@@ -18,9 +18,6 @@ deploy:
   local_dir: exam_2/build
   on:
     branch:
-      - master
-      - devel
-      - HomeWork2
       - exam_2
 
 before_install:

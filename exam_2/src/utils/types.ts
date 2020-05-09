@@ -4,6 +4,11 @@ export type TApiResponse = {
     text: Array<String>,
 }
 
+export type TApiResponseLang = {
+    code: Number,
+    lang: string,
+}
+
 export type TArgs = {
     lang: string,
     text: Array<String>,

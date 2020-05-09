@@ -92,8 +92,7 @@ const TranslateForm = () => {
   React.useEffect(() => {
     const detectLanguage = () => {
       detectLang([textValue])
-      .then((data:any) => {
-        console.log(data.lang)
+      .then((data:UT.TApiResponseLang) => {
         setState({
           ...state,
           isLangDetect: false,
