@@ -3,10 +3,6 @@ export interface ILangsList{
     handleLangChange?: (e:any) => void
 }
 
-export interface IData {
-    
-}
-
 export interface IState{
     langFrom: string,
     langTo: string,
