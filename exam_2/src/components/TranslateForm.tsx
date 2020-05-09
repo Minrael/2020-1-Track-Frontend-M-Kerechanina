@@ -15,8 +15,8 @@ const TranslateForm = () => {
   const [state, setState] = React.useState({
     langFrom: 'en',
     langTo: 'ru',
-    langList: ['ru', 'en'],
-    langNamesList: ['Russian', 'English'],
+    langList: [],
+    langNamesList: [],
     isLangDetect: false,
     isLangsLoaded: false
   } as T.IState)
@@ -35,7 +35,7 @@ const TranslateForm = () => {
         langNamesList: listLongLangs
       })
     }
-    if (state.langList.length < 3) {
+    if (state.langList.length === 0) {
       langsToList(lDict);
     }
   }, [lDict, state])
@@ -43,7 +43,8 @@ const TranslateForm = () => {
   React.useEffect(() => {
     if (!state.isLangsLoaded) {
       getLanguages()    
-      .then((data:any) => {
+      .then((data:T.TApiListLangs) => {
+        console.log(data)
         setState({
           ...state,
           isLangsLoaded:true
@@ -64,7 +65,7 @@ const TranslateForm = () => {
     )
   }
 
-  const handleLangTOChange = (event:any) => {
+  const handleLangTOChange = (event:React.ChangeEvent<HTMLSelectElement>):void => {
     const Longlang = event.target.value;
     let ind = state.langNamesList.indexOf(Longlang);
     const lang = state.langList[ind];
@@ -74,7 +75,7 @@ const TranslateForm = () => {
     })
   }
 
-  const handleLangFROMChange = (event:any) => {
+  const handleLangFROMChange = (event:React.ChangeEvent<HTMLSelectElement>):void => {
     const Longlang = event.target.value;
     let ind = state.langNamesList.indexOf(Longlang);
     const lang = state.langList[ind];
@@ -84,7 +85,7 @@ const TranslateForm = () => {
     })
   }
 
-  const handleInputChange = (event:any/*:React.SyntheticEvent<HTMLInputElement>*/) => {
+  const handleInputChange = (event:React.ChangeEvent<HTMLTextAreaElement>):void => {
     event.preventDefault();
     setTextValue(event.target.value);
   }
@@ -105,19 +106,17 @@ const TranslateForm = () => {
     }
   }, [state.isLangDetect, textValue, state])
 
-  const translate = () => {
+  const translate = ():void => {
     if (textValue) {
       let ln = state.langFrom + '-' + state.langTo
-      console.log(textValue, ln)
       TranslateUtils([textValue], ln )    
       .then((data:UT.TApiResponse) => {
-        console.log(data)
         setTextTranslated(data.text[0] as string)
       });
     }
   }
 
-  const handleKeyPress = (event:React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleKeyPress = (event:React.KeyboardEvent<HTMLTextAreaElement>):void => {
     if (event.charCode === 13) {
       event.preventDefault();
       translate();

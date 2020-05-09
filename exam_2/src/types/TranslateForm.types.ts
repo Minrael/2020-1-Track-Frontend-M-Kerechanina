@@ -15,3 +15,11 @@ export interface IState{
 export interface ILangDict {
     [p:string]: string
 }
+
+type TLangs = {
+    [langs:string]: String
+}
+export type TApiListLangs = {
+    dirs: Array<String>,
+    langs: TLangs
+}
