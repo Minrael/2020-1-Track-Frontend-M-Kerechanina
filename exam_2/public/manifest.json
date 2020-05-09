@@ -1,6 +1,6 @@
 {
-  "short_name": "TTT",
-  "name": "TechnoTrack Translator",
+  "short_name": "Translator",
+  "name": "TechnoTrackTranslator",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "fullscreen",
-  "theme_color": "rgb(172, 11, 11)",
-  "background_color": "rgb(172, 11, 11)"
+  "theme_color": "#8B0000",
+  "background_color": "#8B0000"
 }
