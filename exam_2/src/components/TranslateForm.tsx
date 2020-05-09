@@ -15,8 +15,8 @@ const TranslateForm = () => {
   const [state, setState] = React.useState({
     langFrom: 'en',
     langTo: 'ru',
-    langList: [],
-    langNamesList: [],
+    langList: ['ru', 'en'],
+    langNamesList: ['Russian', 'English'],
     isLangDetect: false,
     isLangsLoaded: false
   } as T.IState)
@@ -35,7 +35,7 @@ const TranslateForm = () => {
         langNamesList: listLongLangs
       })
     }
-    if (state.langList.length === 0) {
+    if (state.langList.length < 3) {
       langsToList(lDict);
     }
   }, [lDict, state])
