@@ -117,7 +117,7 @@ const TranslateForm = () => {
     }
   }
 
-  const handleKeyPress = (event:any) => {
+  const handleKeyPress = (event:React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.charCode === 13) {
       event.preventDefault();
       translate();
