@@ -7,7 +7,7 @@ export const URLPATH = `/translate`
 .then(response => response.json())
 .then(data =>JsonToEnum(data))*/
 
-export const fLang = () => {
+export const getLanguages = () => {
     return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`)
     .then(response => response.json())
     .then(data => data.json())

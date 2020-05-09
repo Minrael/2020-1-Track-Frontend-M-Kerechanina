@@ -3,12 +3,6 @@ import { APIKEY, URLDOMEN, URLPATH } from './constants'
 import { someError, NetError } from './errors'
 //import { langValidate } from './inputValidate'
 
-// const fetch = require('node-fetch');
-// if (!globalThis.fetch) {
-// 	globalThis.fetch = fetch;
-// }
-
-
 let status = (response: Response) => {
 	if (response.status !== 200) {
 		return Promise.reject(new NetError(response.statusText))
@@ -19,6 +13,13 @@ let status = (response: Response) => {
 let toJson = (response: any): any => {
 	return response.json()
 }
+
+export const getLanguages = () => {
+    return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`)
+    .then(response => response.json())
+	.catch(someError)
+}
+
 
 export default function translate (text: String[], lang: string, defLang:boolean=false): Promise<TApiResponse>{
 	//let data = langValidate(text, lang, defLang)

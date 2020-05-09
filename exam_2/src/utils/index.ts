@@ -1,2 +1,2 @@
 export { default as TranslateUtils } from './translate';
-export {fLang} from './constants'
+export {getLanguages} from './translate'

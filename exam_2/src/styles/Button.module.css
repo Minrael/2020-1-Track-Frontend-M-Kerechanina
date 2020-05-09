@@ -14,5 +14,10 @@
 }
 
 .Button:active {
-    border: 2px solid red;
+    border: 5px solid red;
+}
+
+.Button:focus {
+    background-color: red;
+    color: white;
 }

@@ -1,18 +1,20 @@
-//import * as U from '../utils/constants'
-export interface IData{
-    langList: String[]
+export interface ILangsList{
+    langList: String[],
+    handleLangChange?: (e:any) => void
 }
 
-
-// export interface IState{
-//     langFrom: U.Langs,
-//     langTo: U.Langs,
-//     langList: []
-// }
-
+export interface IData {
+    
+}
 
 export interface IState{
     langFrom: string,
     langTo: string,
-    langList: Array<String>
+    langList: Array<String>,
+    langNamesList: Array<String>,
+    isLangDetect: boolean
+}
+
+export interface ILangDict {
+    [p:string]: string
 }

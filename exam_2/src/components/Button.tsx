@@ -6,7 +6,7 @@ const Button = (props:T.IButtonProps) => {
 
   return(
     <div>
-      <button className = {styles.Button}>{props.buttonName}</button>
+      <button className = {styles.Button} onClick = {props.handleClick}>{props.buttonName}</button>
     </div>
   )
 }

@@ -1,3 +1,5 @@
 export interface IButtonProps {
-    buttonName: string
+    buttonName: string,
+    handleClick?: (e:any) => void
+
 }
