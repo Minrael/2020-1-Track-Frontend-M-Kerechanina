@@ -44,8 +44,9 @@ const MessageList = (props) => {
 //             });
 //             setMessagesBack(msgs);
 //         });
+//    },[MessagesBack])
 // RENDER
-//   { MessagesBack && MessagesBack.map(msg => replaceEmoji(msg, Math.floor(Math.random()*10000))) }
+//    { MessagesBack && MessagesBack.map(msg => replaceEmoji(msg, Math.floor(Math.random()*10000))) }
  
     const resEnd = React.useRef(null) 
 
