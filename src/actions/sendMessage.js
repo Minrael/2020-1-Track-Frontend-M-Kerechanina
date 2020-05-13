@@ -31,16 +31,6 @@ export const sendMessage = (message) => {
         data.append('chat', 1)
         data.append('content', message)
 
-        //WORKS WITH BACKEND
-        //dispatch(sendMessageRequest())
-        // fetch(`/chats/send_message/`,{
-        //   method: 'POST', 
-        //   body: data,
-        //   mode: 'no-cors'
-        // })
-        // .then(resp => resp.json())
-        // .then(() => dispatch(sendMessageSuccess(message)))
-        // .catch((e) => dispatch(sendMessageFailure(e.message)))
         try{
           dispatch(sendMessageRequest());
           dispatch(sendMessageSuccess(message));
