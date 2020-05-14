@@ -65,7 +65,7 @@ const TranslateForm = () => {
     )
   }
 
-  const handleLangTOChange = (event:React.KeyboardEvent<HTMLSelectElement>):void => {
+  const handleLangTOChange = (event:React.ChangeEvent<HTMLSelectElement>):void => {
     const Longlang = event.currentTarget.value;
     let ind = state.langNamesList.indexOf(Longlang);
     const lang: string = state.langList[ind];
@@ -75,7 +75,7 @@ const TranslateForm = () => {
     })
   }
 
-  const handleLangFROMChange = (event:React.KeyboardEvent<HTMLSelectElement>):void => {
+  const handleLangFROMChange = (event:React.ChangeEvent<HTMLSelectElement>):void => {
     const Longlang = event.currentTarget.value;
     let ind = state.langNamesList.indexOf(Longlang);
     const lang: string = state.langList[ind];
@@ -85,7 +85,7 @@ const TranslateForm = () => {
     })
   }
 
-  const handleInputChange = (event:React.KeyboardEvent<HTMLTextAreaElement>):void => {
+  const handleInputChange = (event:React.ChangeEvent<HTMLTextAreaElement>):void => {
     event.preventDefault();
     setTextValue(event.currentTarget.value);
   }

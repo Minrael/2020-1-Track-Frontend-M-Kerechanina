@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export interface ILangsList{
     langList: string[],
-    handleLangChange?: (e:React.KeyboardEvent<HTMLSelectElement>) => void
+    handleLangChange?: (e:React.ChangeEvent<HTMLSelectElement>) => void
 }
 
 export interface IState{
