@@ -1,7 +1,7 @@
 export type TApiResponse = {
     code: Number,
-    lang: String,
-    text: Array<String>,
+    lang: string,
+    text: string[],
 }
 
 export type TApiResponseLang = {
@@ -11,21 +11,17 @@ export type TApiResponseLang = {
 
 export type TArgs = {
     lang: string,
-    text: Array<String>,
+    text: string[],
     defLang?: boolean,
 }
 
 export type TGuessLang = {
     error: boolean,
     needToGuess: boolean,
-    langString: String,
+    langString: string,
 }
 
 export type userException = {
     name: string,
     message: string,
-}
-
-export type newType = {
-    
 }

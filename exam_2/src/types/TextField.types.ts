@@ -1,6 +1,6 @@
 export interface ITextField{
     placeholder?: string
     value?: string
-    handleChange?: (e:any) => void
-    handleKeyPress?: (e:any) => void
+    handleChange?: (e:React.KeyboardEvent<HTMLTextAreaElement>) => void
+    handleKeyPress?: (e:React.KeyboardEvent<HTMLTextAreaElement>) => void
 }

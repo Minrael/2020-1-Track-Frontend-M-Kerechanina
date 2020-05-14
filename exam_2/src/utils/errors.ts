@@ -3,14 +3,14 @@ export const someError = (error: Error) => {
 }
 
 export class InvalidLangError extends Error {
-	constructor(message:any){
+	constructor(message:string){
 		super(message);
 		this.name = 'InvalidLangError'
 	}
 }
 
 export class NetError extends Error {
-	constructor(message:any){
+	constructor(message:string){
 		super(message);
 		this.name = 'NetError'
 	}

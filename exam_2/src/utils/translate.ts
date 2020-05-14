@@ -1,4 +1,4 @@
-import { TApiResponse } from './types' 
+import { TApiResponse, TApiResponseLang } from './types' 
 import { APIKEY, URLDOMEN, URLPATH } from './constants'
 import { someError, NetError } from './errors'
 //import { langValidate } from './inputValidate'
@@ -10,8 +10,10 @@ let status = (response: Response) => {
 	return Promise.resolve(response)
 }
 
-let toJson = (response: any): any => {
+let toJson = (response: void|Response): Promise<any> => {
+	if (response)
 	return response.json()
+	else return Promise.reject(response)
 }
 
 export const getLanguages = () => {
@@ -20,9 +22,9 @@ export const getLanguages = () => {
 	.catch(someError)
 }
 
-export const detectLang = (text:String[]): Promise<any> => {
-	let URLPRMS = `?key=${APIKEY}&text=${text}`
-	let API = URLDOMEN + `/detect` + URLPRMS;
+export const detectLang = (text:string[]): Promise<TApiResponseLang> => {
+	const URLPRMS = `?key=${APIKEY}&text=${text}`
+	const API = URLDOMEN + `/detect` + URLPRMS;
 	return fetch(API)
 	.then(status)
 	.catch(someError)
@@ -31,10 +33,10 @@ export const detectLang = (text:String[]): Promise<any> => {
 }
 
 
-export default function translate (text: String[], lang: string, defLang:boolean=false): Promise<TApiResponse>{
+export default function translate (text: string[], lang: string, defLang:boolean=false): Promise<TApiResponse>{
 	//let data = langValidate(text, lang, defLang)
-	let URLPRMS = `?key=${APIKEY}&text=${text}&lang=${lang}&format=plain`
-	let API = URLDOMEN + URLPATH + URLPRMS;
+	const URLPRMS = `?key=${APIKEY}&text=${text}&lang=${lang}&format=plain`
+	const API = URLDOMEN + URLPATH + URLPRMS;
 
 	return fetch(API)
 		.then(status)

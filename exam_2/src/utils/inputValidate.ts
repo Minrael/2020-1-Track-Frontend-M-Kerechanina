@@ -3,17 +3,17 @@ import { Langs } from './constants'
 import { InvalidLangError } from './errors'
 
 
-export let isLnagInList = (langString:String):TGuessLang => {
+export let isLnagInList = (langString: string):TGuessLang => {
 	let t:TGuessLang = {
 		error: false,
         needToGuess: false,
         langString: langString,
 	}
-	let langArr: String[] = (langString as String).split('-');
-	if (!(langArr[1] as string in Langs)) 
+	let langArr = (langString).split('-');
+	if (!(langArr[1] in Langs)) 
 		t.error = true
 	else {
-		if (!(langArr[0] as string in Langs)) {
+		if (!(langArr[0] in Langs)) {
             t.needToGuess = true
             t.langString = langArr[1]
 		}
@@ -21,7 +21,7 @@ export let isLnagInList = (langString:String):TGuessLang => {
 	return t
 }
 
-export function langValidate (text: String[], lang: string, defLang:boolean=false): TArgs {
+export function langValidate (text: string[], lang: string, defLang:boolean=false): TArgs {
     let data:TArgs = {
         "lang": lang,
         "text": text,
@@ -29,7 +29,7 @@ export function langValidate (text: String[], lang: string, defLang:boolean=fals
     }
     try {
         if (isLnagInList(lang).needToGuess) {
-            data.lang = isLnagInList(lang).langString as string
+            data.lang = isLnagInList(lang).langString
             data.defLang = true
         }
         if (!isLnagInList(lang).error) throw new InvalidLangError('no lang')

@@ -60,34 +60,34 @@ const TranslateForm = () => {
     let handleLangChange = props.handleLangChange;
     return(
       <select onChange = {handleLangChange} className = {styles.selectMenu}>
-        {langList.map(el => <option key = {el as string}>{el}</option>)}
+        {langList.map((el:string) => <option key = {el}>{el}</option>)}
       </select>
     )
   }
 
-  const handleLangTOChange = (event:React.ChangeEvent<HTMLSelectElement>):void => {
-    const Longlang = event.target.value;
+  const handleLangTOChange = (event:React.KeyboardEvent<HTMLSelectElement>):void => {
+    const Longlang = event.currentTarget.value;
     let ind = state.langNamesList.indexOf(Longlang);
-    const lang = state.langList[ind];
+    const lang: string = state.langList[ind];
     setState({
       ...state,
-      langTo: lang as string
+      langTo: lang
     })
   }
 
-  const handleLangFROMChange = (event:React.ChangeEvent<HTMLSelectElement>):void => {
-    const Longlang = event.target.value;
+  const handleLangFROMChange = (event:React.KeyboardEvent<HTMLSelectElement>):void => {
+    const Longlang = event.currentTarget.value;
     let ind = state.langNamesList.indexOf(Longlang);
-    const lang = state.langList[ind];
+    const lang: string = state.langList[ind];
     setState({
       ...state,
-      langFrom: lang as string
+      langFrom: lang
     })
   }
 
-  const handleInputChange = (event:React.ChangeEvent<HTMLTextAreaElement>):void => {
+  const handleInputChange = (event:React.KeyboardEvent<HTMLTextAreaElement>):void => {
     event.preventDefault();
-    setTextValue(event.target.value);
+    setTextValue(event.currentTarget.value);
   }
 
   React.useEffect(() => {

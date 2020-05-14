@@ -1,13 +1,15 @@
+import * as React from 'react'
+
 export interface ILangsList{
-    langList: String[],
-    handleLangChange?: (e:any) => void
+    langList: string[],
+    handleLangChange?: (e:React.KeyboardEvent<HTMLSelectElement>) => void
 }
 
 export interface IState{
     langFrom: string,
     langTo: string,
-    langList: Array<String>,
-    langNamesList: Array<String>,
+    langList: string[],
+    langNamesList: string[],
     isLangDetect: boolean,
     isLangsLoaded: boolean
 }
@@ -17,9 +19,9 @@ export interface ILangDict {
 }
 
 type TLangs = {
-    [langs:string]: String
+    [langs:string]: string
 }
 export type TApiListLangs = {
-    dirs: Array<String>,
+    dirs: string[],
     langs: TLangs
 }
