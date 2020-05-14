@@ -16,6 +16,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $repo_token
+  api_key: $APIKEY
   local_dir: exam_2/build
   on:
     branch:

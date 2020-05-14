@@ -1,8 +1,10 @@
 import { TApiResponse, TApiResponseLang } from './types' 
 import { URLDOMEN, URLPATH } from './constants'
-import { APIKEY } from './API_KEY'
+//import { APIKEY } from './API_KEY'
 import { someError, NetError } from './errors'
 //import { langValidate } from './inputValidate'
+
+const APIKEY = process.env.api_key
 
 let status = (response: Response) => {
 	if (response.status !== 200) {
