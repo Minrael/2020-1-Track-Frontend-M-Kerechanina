@@ -1,5 +1,6 @@
 import { TApiResponse, TApiResponseLang } from './types' 
-import { APIKEY, URLDOMEN, URLPATH } from './constants'
+import { URLDOMEN, URLPATH } from './constants'
+import { APIKEY } from './API_KEY'
 import { someError, NetError } from './errors'
 //import { langValidate } from './inputValidate'
 

@@ -1,4 +1,3 @@
-export const APIKEY = 'trnsl.1.1.20200410T152145Z.673f67ec39260b6e.1b3b5262fe27d005d1b21531004b2c1a5521407c';
 export const URLDOMEN = `https://translate.yandex.net/api/v1.5/tr.json`
 export const URLPATH = `/translate`
 
