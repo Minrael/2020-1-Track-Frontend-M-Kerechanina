@@ -9,12 +9,12 @@ function App() {
   return (
     <Switch>
       <Route
-        path="/chart"
+        path="/component"
         render={() => (<MyD3Component data={[1,2,3]}/>)}
       />
       <Route
-        path="/component"
-        render={() => (<Component filename = "covid_19_data.csv" />)}
+        path="/chart"
+        render={() => (<Component filename = "covid_19_clean_complete.csv" country = "Russia"/>)}
       />
     </Switch>
   );

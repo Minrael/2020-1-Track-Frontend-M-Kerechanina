@@ -2,7 +2,13 @@ export interface Idata {
     filename: string
   }
 
-export interface ICsvData {
-  [key: string]: any
-}
+type strORundef = string|undefined
 
+export interface IDataSet {
+  "Country/Region": strORundef,
+  "Province/State": strORundef,
+  "Confirmed": strORundef,
+  "Deaths": strORundef,
+  "Date": strORundef,
+  "Recovered": strORundef
+}

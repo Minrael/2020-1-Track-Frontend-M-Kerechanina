@@ -33,21 +33,21 @@ export const sendMessage = (message) => {
 
         //WORKS WITH BACKEND
         //dispatch(sendMessageRequest())
-        // fetch(`/chats/send_message/`,{
-        //   method: 'POST', 
-        //   body: data,
-        //   mode: 'no-cors'
-        // })
+        fetch(`http://127.0.0.1:8000/chats/send_message/`,{
+          method: 'POST', 
+          body: data,
+          mode: 'no-cors'
+        })
         // .then(resp => resp.json())
-        // .then(() => dispatch(sendMessageSuccess(message)))
+        .then(() => dispatch(sendMessageSuccess(message)))
         // .catch((e) => dispatch(sendMessageFailure(e.message)))
-        try{
-          dispatch(sendMessageRequest());
-          dispatch(sendMessageSuccess(message));
-        }
-        catch (e) {
-            dispatch(sendMessageFailure(e.message))
-        }
+        // try{
+        //   dispatch(sendMessageRequest());
+        //   dispatch(sendMessageSuccess(message));
+        // }
+        // catch (e) {
+        //     dispatch(sendMessageFailure(e.message))
+        // }
     }
 }
 

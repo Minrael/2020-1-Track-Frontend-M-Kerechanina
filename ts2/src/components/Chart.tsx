@@ -1,50 +1,105 @@
 import * as d3 from 'd3'
 import * as React from 'react';
+import * as T from './Chart.types'
+
 
 
 export const Component: React.FunctionComponent<any> = (props) => {
 
-    //const file = props.filename
+    const file = props.filename
+    const country = props.country
 
-    //const [data, setData] = React.useState([])
+    const [dataSet, setDataSet] = React.useState([] as T.IDataSet[])
+    const [dataCases, setDataCases] = React.useState([] as (string | undefined)[])
+    const [Dates, setDates] = React.useState([] as (string | undefined)[])
+    //const [targetRegionDataSet, setTargetRegionDataSet] = React.useState([] as T.IDataSet[])
     const container: React.MutableRefObject<null> = React.useRef(null)
 
     React.useEffect(() => {
 
-       //if (data.length === 0){           
-            d3.csv("c.csv")
+       //Data parser
+       if (dataSet.length === 0){           
+            d3.csv(file)
             .then( (data) => {
-                for(let i=0; i < 100; i++) {
-                    console.log(data[i])
-                    //setData([])
+                let data_all:T.IDataSet[] = []
+                let data_cases = []
+                let dates = []
+                for(let i=0; i < 29000; i++) { //fix 10000 to file length
+                    if ( data[i]["Country/Region"] === country) {
+                        let data_i:T.IDataSet = {
+                            "Country/Region": data[i]["Country/Region"],
+                            "Province/State": data[i]["Province/State"],
+                            "Confirmed": data[i].Confirmed,
+                            "Deaths": data[i].Deaths,
+                            "Date": data[i].Date,
+                            "Recovered": data[i].Recovered
+                        }
+                        data_all.push(data_i)
+                        data_cases.push(data[i].Confirmed)
+                        dates.push(data[i].Date)
+                    }
                 }
-            })//}
-       
+                setDataSet(data_all)
+                setDataCases(data_cases)
+                setDates(dates)
+                //console.log(data)
+            })
+        }
+        // else {
+        //     console.log(dataCases)
+        // }
+
+        let data: number[] = [0]
+         dataCases.forEach(p => {
+             if (p !== undefined)
+                data.push(+p)
+            })
+
+        let xAx = d3.scaleBand()
+        .domain(Dates.map(d=>d as string))
+        .rangeRound([0, 500])
+
 
         const svg = d3.select(container.current)
-        
-        svg.append("circle")
-        .attr("r", 5)
-        .attr("cx", "100")
-        .attr("cy", "100")
-        .attr("fill", "red");
 
-
-        const ex1 = d3.select("p")
-        .style('font-size', 24)
+        svg
+        .append('g')
+        .selectAll('bar')
+        .data(data)
         .enter()
         .append('rect')
+        .classed('bar', true)
+        //.attr('x', d => (xAx(d.toString()) as number) + xAx.bandwidth())
+        .attr('x', d => d *0.5)
+        .attr('y', 10)
+        .attr('height', d => d)
+        .attr('width', '20')
+        .attr("fill", "blue");
 
 
+     // svg
+        // .append('g')
+        // .selectAll('circle')
+        // .data(data)
+        // .enter()
+        // .append('circle')
+        // .attr('r', d => d)
+        // .attr("cx",d => d*10)
+        // .attr("cy", "100")
+        // .attr("fill", "red");
 
-    },[container])
+        //.style("background-color", "black")
+
+        
+
+
+    },[container, dataSet, dataCases])
   
     return (
         <div>
             <p>Chart</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" ref={container} />
-            <button  type="button">
-            </button>
+            <div>{}</div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" ref={container} />
         </div>
 
     );
