@@ -1,0 +1,9 @@
+.header {
+    font-size: 40px;
+    
+}
+.containerChart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

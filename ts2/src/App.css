@@ -1,6 +1,37 @@
 .App {
   text-align: center;
 }
+.html{
+  height: 1000px;
+  width: 100%;
+}
+
+.body{
+  height: 100%;
+  width: 100%;
+}
+.text {
+  font-size: 40px;
+  color: green;
+}
+
+A:link{
+  font-size: 50px;
+  color:green;
+}
+A:visited{
+  color:green;
+}
+
+.countrySelect {
+  background-color: greenyellow;
+  font-size: 40px;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
