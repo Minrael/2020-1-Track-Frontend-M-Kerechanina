@@ -38,39 +38,41 @@ export const Component: React.FunctionComponent<T.IProps> = (props) => {
             })
         }
 
-        let maxCases = Math.max.apply(null, dataSet.map(d => d.Confirmed))
+        const padding = 50;
+        const hght = +svgHeight-padding;
+        const maxCases = Math.max.apply(null, dataSet.map(d => d.Confirmed))
 
         let dataNormzd:T.IDataSet[] = []
         dataSet.forEach(data => {
             dataNormzd.push({
                 ...data,
-                "Confirmed": (data.Confirmed/maxCases)*600
+                "Confirmed": (data.Confirmed/maxCases)*(hght)
             })
         })
 
-        const padding = 50;
+
 
         const svg = d3.select(container.current)
 
         let xScale = d3.scaleBand()
         .domain(dataNormzd.map(d => d.Date as string))
-        .rangeRound([0, +svgWidth-padding])
+        .rangeRound([0, +svgWidth])
 
         let yScale = d3.scaleLinear()
         .domain([0, maxCases])
         .nice()
-        .range([+svgWidth-padding, 0])
+        .range([hght, 0])
 
         svg
         .append('g')
-        .attr('transform', 'translate(0,-50)')
+        //.attr('transform', 'translate(0,0)')
         .selectAll('bar')
         .data(dataNormzd)
         .enter()
         .append('rect')
         .classed('bar', true)
         .attr('x', d => xScale(d.Date) as number)
-        .attr('y', d => 750-d.Confirmed)
+        .attr('y', d => hght-d.Confirmed)
         .attr('height', d => d.Confirmed)
         .attr('width', d => xScale.bandwidth()*0.7)
         .attr("fill", "red");
@@ -83,12 +85,12 @@ export const Component: React.FunctionComponent<T.IProps> = (props) => {
 
         svg
         .append('g')
-        .attr('transform', 'translate(100, -50)')
+        .attr('transform', `translate(${padding*2}, 0)`)
         .call(yAxis)
 
         svg
         .append('g')
-        .attr('transform', 'translate(50,700)')
+        .attr('transform', `translate(${padding*2}, ${hght})`)
         .call(xAxis)
 
 
