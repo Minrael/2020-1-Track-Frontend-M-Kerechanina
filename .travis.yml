@@ -17,10 +17,10 @@ deploy:
   skip_cleanup: true
   github_token: $repo_token
   api: $APIKEY
+  ln: $lang
   local_dir: exam_2/build
   on:
     branch:
-      - master
       - exam_2 
 
 before_install:

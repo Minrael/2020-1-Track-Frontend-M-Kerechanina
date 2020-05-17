@@ -5,6 +5,7 @@ import { someError, NetError } from './errors'
 //import { langValidate } from './inputValidate'
 
 const APIKEY = process.env.api
+const ln = process.env.ln
 
 let status = (response: Response) => {
 	if (response.status !== 200) {
@@ -20,7 +21,7 @@ let toJson = (response: void|Response): Promise<any> => {
 }
 
 export const getLanguages = () => {
-    return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`, {mode: 'no-cors'})
+    return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=trnsl.1.1.20200517T214413Z.4b156f534ea17b17.375da99471cffe1680409ae5f552ff3095f0bab6&ui=${ln}`, {mode: 'no-cors'})
     .then(response => response.json())
 	.catch(someError)
 }
