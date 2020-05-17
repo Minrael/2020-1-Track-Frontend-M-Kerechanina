@@ -4,8 +4,7 @@ import { URLDOMEN, URLPATH } from './constants'
 import { someError, NetError } from './errors'
 //import { langValidate } from './inputValidate'
 
-//const APIKEY = process.env.api_key
-const APIKEY = `trnsl.1.1.20200517T214413Z.4b156f534ea17b17.375da99471cffe1680409ae5f552ff3095f0bab6`
+const APIKEY = process.env.api_key
 
 let status = (response: Response) => {
 	if (response.status !== 200) {
