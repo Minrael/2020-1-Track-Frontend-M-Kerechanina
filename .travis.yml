@@ -9,7 +9,7 @@ addons:
       - libnss3
 
 branches:
-  - HW7
+ # - HW7
 
 script:
   - npm run build
@@ -22,7 +22,7 @@ deploy:
   on:
     branch:
       - master
-      - HW7
+      #- HW7
 
 before_install:
   - cd ts2
