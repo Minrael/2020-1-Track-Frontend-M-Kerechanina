@@ -4,7 +4,8 @@ import { URLDOMEN, URLPATH } from './constants'
 import { someError, NetError } from './errors'
 //import { langValidate } from './inputValidate'
 
-const APIKEY = process.env.api_key  
+//const APIKEY = process.env.api_key
+const APIKEY = `trnsl.1.1.20200517T214413Z.4b156f534ea17b17.375da99471cffe1680409ae5f552ff3095f0bab6`
 
 let status = (response: Response) => {
 	if (response.status !== 200) {
@@ -20,8 +21,7 @@ let toJson = (response: void|Response): Promise<any> => {
 }
 
 export const getLanguages = () => {
-	console.log(APIKEY)
-    return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`, {mode: 'no-cors'})
+    return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`)
     .then(response => response.json())
 	.catch(someError)
 }
@@ -29,7 +29,7 @@ export const getLanguages = () => {
 export const detectLang = (text:string[]): Promise<TApiResponseLang> => {
 	const URLPRMS = `?key=${APIKEY}&text=${text}`
 	const API = URLDOMEN + `/detect` + URLPRMS;
-	return fetch(API, {mode: 'no-cors'})
+	return fetch(API)
 	.then(status)
 	.catch(someError)
 	.then(toJson)
@@ -42,7 +42,7 @@ export default function translate (text: string[], lang: string, defLang:boolean
 	const URLPRMS = `?key=${APIKEY}&text=${text}&lang=${lang}&format=plain`
 	const API = URLDOMEN + URLPATH + URLPRMS;
 
-	return fetch(API, {mode: 'no-cors'})
+	return fetch(API)
 		.then(status)
 		.catch(someError)
 		.then(toJson)
