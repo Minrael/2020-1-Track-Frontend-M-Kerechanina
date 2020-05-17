@@ -4,8 +4,8 @@ import { URLDOMEN, URLPATH } from './constants'
 import { someError, NetError } from './errors'
 //import { langValidate } from './inputValidate'
 
-const APIKEY = process.env.api
-const ln = process.env.ln
+const APIKEY = process.env.APIKEY
+const ln = process.env.lang
 
 let status = (response: Response) => {
 	if (response.status !== 200) {
