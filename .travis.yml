@@ -8,7 +8,7 @@ addons:
       # This is required to run new chrome on old trusty
       - libnss3
 branches:
-  - exam_2
+  - exam_2 
 script:
   - npm run build
 
