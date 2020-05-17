@@ -4,7 +4,7 @@ import { URLDOMEN, URLPATH } from './constants'
 import { someError, NetError } from './errors'
 //import { langValidate } from './inputValidate'
 
-const APIKEY = process.env.api_key
+const APIKEY = process.env.api_key  
 
 let status = (response: Response) => {
 	if (response.status !== 200) {
@@ -20,6 +20,7 @@ let toJson = (response: void|Response): Promise<any> => {
 }
 
 export const getLanguages = () => {
+	console.log(APIKEY)
     return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`)
     .then(response => response.json())
 	.catch(someError)
