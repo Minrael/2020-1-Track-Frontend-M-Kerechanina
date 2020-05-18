@@ -21,7 +21,7 @@ let toJson = (response: void|Response): Promise<any> => {
 }
 
 export const getLanguages = () => {
-    return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`, {mode: 'no-cors'})
+    return fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${APIKEY}&ui=en`)
     .then(response => response.json())
 	.catch(someError)
 }
@@ -29,7 +29,7 @@ export const getLanguages = () => {
 export const detectLang = (text:string[]): Promise<TApiResponseLang> => {
 	const URLPRMS = `?key=${APIKEY}&text=${text}`
 	const API = URLDOMEN + `/detect` + URLPRMS;
-	return fetch(API, {mode: 'no-cors'})
+	return fetch(API)
 	.then(status)
 	.catch(someError)
 	.then(toJson)
@@ -42,7 +42,7 @@ export default function translate (text: string[], lang: string, defLang:boolean
 	const URLPRMS = `?key=${APIKEY}&text=${text}&lang=${lang}&format=plain`
 	const API = URLDOMEN + URLPATH + URLPRMS;
 
-	return fetch(API, {mode: 'no-cors'})
+	return fetch(API)
 		.then(status)
 		.catch(someError)
 		.then(toJson)
