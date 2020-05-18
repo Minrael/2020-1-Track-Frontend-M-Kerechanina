@@ -81,7 +81,7 @@
     "test:endtoend": "jest -c endtoend/jest.config.js",
     "ci": "npm run test && npm run build"
   },
-  "proxy": "http://127.0.0.1:8001/",
+  "proxy": "https://maria-kerechanina.chickenkiller.com/",
   "eslintConfig": {
     "extends": "react-app"
   },
