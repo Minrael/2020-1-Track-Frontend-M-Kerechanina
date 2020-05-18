@@ -23,7 +23,7 @@ function App() {
       <section className = "box">
         <div className = "text">SHOCKING NEWS!!! Russian scientists reveal...</div>
         <CountryButton/>
-        <Link to="/chart">Bell curve of intellect</Link>
+        <Link to={`${process.env.PUBLIC_URL}/chart`}>Bell curve of intellect</Link>
       </section>
     )
   }
@@ -31,7 +31,7 @@ function App() {
   return (
     <Switch>
       <Route
-        path="/chart"
+        path={`${process.env.PUBLIC_URL}/chart`}
         render={() => (<Component 
           filename = "covid_19_clean_complete.csv" 
           country = {country}
@@ -39,7 +39,7 @@ function App() {
           height = "750"
           />)}
       />
-      <Route exact path="/" component = {IndexPage}>
+      <Route exact path={`${process.env.PUBLIC_URL}`} component = {IndexPage}>
       </Route>
     </Switch>
   );
