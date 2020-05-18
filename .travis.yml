@@ -8,7 +8,8 @@ addons:
       # This is required to run new chrome on old trusty
       - libnss3
 branches:
-  - Homework8
+  - exam_2 
+
 script:
   - npm run build
 
@@ -16,14 +17,18 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $repo_token
-  local_dir: build
+  api_key: $APIKEY
+  lang: $lang
+  local_dir: exam_2/build
   on:
     branch:
-      - Homework8 
+      - exam_2 
+
 
 before_install:
   # Enable user namespace cloning
   - "sysctl kernel.unprivileged_userns_clone=1"
   # Launch XVFB
   - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"  
+  - "sh -e /etc/init.d/xvfb start"
+  - cd exam_2

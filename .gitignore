@@ -1,30 +1,12 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-/ts
-/ts/*.js
-/ts/utils/*.js
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+hideme.txt
 
-# testing
-/coverage
+build/
+node_modules/
 
-# production
-/build
+ts/
+ts2/
+exam_2/src/utils/API_KEY.ts
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-/exam_2 
-
+.gitsecret/
 
