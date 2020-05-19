@@ -4,15 +4,16 @@ import { sendMessage } from '../../actions/sendMessage';
 import { getMessages } from '../../actions/getMessage'
 import submit from '../../static/mailsend_104372.png';
 import attach from '../../static/attach-rotated_icon-icons.com_68593.png';
-import emoji from '../../static/mbrismileface_99462.png'
-import EmojiTool from './EmojiTool'
-import stls from '../../styles/FormInput.css'
-import TemplateButton from './TemplateButton'
+import emoji from '../../static/mbrismileface_99462.png';
+import EmojiTool from './EmojiTool';
+import stls from '../../styles/FormInput.css';
+import TemplateButton from './TemplateButton';
 
 const FormInput = (props) => {
 
-    const {placeholder, sendMsg, getMsgs } = props
+    const {placeholder, sendMsg, getMsgs } = props;
     const [inputMessage, setInputMessage] = useState(''); 
+
     const [emojiView, setEmojiView] = useState(false); 
 
     const handleSubmit = (event) => {

@@ -1,10 +1,10 @@
 {
   "name": "2020-1-Track-Frontend-M-Kerechanina",
-  "homepage": "https://Minrael.github.io/2020-1-Track-Frontend-M-Kerechanina/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@babel/core": "7.8.4",
+    "@sentry/browser": "^5.15.5",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
@@ -19,6 +19,7 @@
     "babel-preset-react-app": "^9.1.1",
     "camelcase": "^5.3.1",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
+    "centrifuge": "^2.5.0",
     "css-loader": "3.4.2",
     "css-sprite-loader": "^0.3.4",
     "dotenv": "8.2.0",
@@ -35,6 +36,7 @@
     "fs-extra": "^8.1.0",
     "html-webpack-plugin": "4.0.0-beta.11",
     "identity-obj-proxy": "3.0.0",
+    "ismounted": "^0.1.6",
     "jest": "^24.9.0",
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-resolve": "24.9.0",
