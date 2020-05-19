@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect/*, useState*/ } from 'react';
+
 import { connect } from 'react-redux';
 //import useIsMounted from 'ismounted'
 import { getMessages/*, openWebSocket, closeWebSocket*/ } from '../../actions/getMessage';
 //import { sendMessage } from '../../actions/sendMessage';
 import messageToBox from './MessageBox';
-import Centrifuge from 'centrifuge'
+
+//import Centrifuge from 'centrifuge'
+
 
 const MessageList = (props) => {
 
@@ -17,21 +20,6 @@ const MessageList = (props) => {
 
     // CENTRIFUGO 
     // websocket works, message doesn't 
-    useEffect(() => {
-    let centrifuge = new Centrifuge('ws://localhost:8002/connection/websocket')//, "e59ad6ed-d35d-4b5c-89cb-d8f5bf37beb6")
-    //centrifuge.setToken('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MiJ9.dHk1mvBEx4dVXnvWoaVg_rcrBiuhWdXEriZpdyIqMdU')
-    centrifuge.on('connect', (context) => {
-        console.log('yes')
-      });
-    centrifuge.subscribe('news', (message) => {
-        console.log(message)
-      });
-    centrifuge.publish('news', {"input": "Hello!"}).then(function(res) {console.log('success')});
-    centrifuge.connect();
-    }, [messages])
-
-
-//WORKS WITH BACHEND
 
 //    useEffect(() => {
 //         fetch(`/chats/chat_message_list/`)

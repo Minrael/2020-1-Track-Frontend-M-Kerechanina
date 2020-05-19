@@ -8,7 +8,10 @@ addons:
       # This is required to run new chrome on old trusty
       - libnss3
 branches:
-  - HW7 
+
+  - exam_2 
+
+
 script:
   - npm run build
 
@@ -20,6 +23,7 @@ deploy:
   on:
     branch:
       - HW7 
+
 
 
 before_install:

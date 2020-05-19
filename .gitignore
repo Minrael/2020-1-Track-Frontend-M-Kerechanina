@@ -1,8 +1,6 @@
 
 hideme.txt
 
-hideme.txt
-
 build/
 node_modules/
 
@@ -11,3 +9,4 @@ ts2/
 exam_2/src/utils/API_KEY.ts
 
 .gitsecret/
+
