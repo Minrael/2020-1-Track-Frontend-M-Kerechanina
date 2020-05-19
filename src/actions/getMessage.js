@@ -32,23 +32,3 @@ export const getMessages = () => {
 
     }
 }
-
-/*export const openWebSocket = () => {
-  return (dispatch) => {
-
-      socket = new Centrifuge('ws://127.0.0.1:8000/connection/websocket')
-      socket.connect()
-
-      socket.on('connect')
-
-      socket.on('disconnect', (context) => {
-        console.log('disconnected')
-      })
-
-      subscription = socket.subscribe('news', (message) => {
-        console.log(message)
-        dispatch(getMessageSuccess(message))
-      })
-  }
-}
-}*/
