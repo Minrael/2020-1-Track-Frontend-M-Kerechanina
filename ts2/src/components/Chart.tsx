@@ -1,0 +1,107 @@
+import * as d3 from 'd3'
+import * as React from 'react';
+import * as T from './Chart.types'
+import styles from './Chart.module.css'
+
+export const Component: React.FunctionComponent<T.IProps> = ({
+  country,
+  filename: file,
+  height: svgHeight,
+  width: svgWidth,
+}) => {
+
+    const [dataSet, setDataSet] = React.useState([] as T.IDataSet[])
+
+    const container: React.MutableRefObject<null> = React.useRef(null)
+
+    React.useEffect(() => {
+
+       if (dataSet.length === 0 && file){           
+            d3.csv(file)
+            .then( (data) => {
+                let data_all:T.IDataSet[] = []
+                data.forEach((item, i) => {
+                    if ( item["Country/Region"] === country && item.Confirmed !== undefined && item.Date !== undefined) {
+                        let data_i:T.IDataSet = {
+                            "No": i,
+                            "Country/Region": item["Country/Region"],
+                            "Province/State": item["Province/State"],
+                            "Confirmed": +item.Confirmed,
+                            "Deaths": item.Deaths,
+                            "Date": item.Date,
+                            "Recovered": item.Recovered
+                        }
+                        data_all.push(data_i)
+                    }
+                })
+                setDataSet(data_all)
+            })
+        }
+
+        const padding = 50;
+        const hght = +svgHeight-padding;
+        const maxCases = Math.max.apply(null, dataSet.map(d => d.Confirmed))
+
+        let dataNormzd:T.IDataSet[] = []
+        dataSet.forEach(data => {
+            dataNormzd.push({
+                ...data,
+                "Confirmed": (data.Confirmed/maxCases)*(hght)
+            })
+        })
+
+
+
+        const svg = d3.select(container.current)
+
+        let xScale = d3.scaleBand()
+        .domain(dataNormzd.map(d => d.Date as string))
+        .rangeRound([0, +svgWidth])
+
+        let yScale = d3.scaleLinear()
+        .domain([0, maxCases])
+        .nice()
+        .range([hght, 0])
+
+        svg
+        .append('g')
+        //.attr('transform', 'translate(0,0)')
+        .selectAll('bar')
+        .data(dataNormzd)
+        .enter()
+        .append('rect')
+        .classed('bar', true)
+        .attr('x', d => xScale(d.Date) as number)
+        .attr('y', d => hght-d.Confirmed)
+        .attr('height', d => d.Confirmed)
+        .attr('width', d => xScale.bandwidth()*0.7)
+        .attr("fill", "red");
+
+        let xAxis = d3.axisBottom(xScale)
+        .scale(xScale)
+
+        let yAxis = d3.axisLeft(yScale)
+        .scale(yScale)      
+
+        svg
+        .append('g')
+        .attr('transform', `translate(${padding*2}, 0)`)
+        .call(yAxis)
+
+        svg
+        .append('g')
+        .attr('transform', `translate(${padding*2}, ${hght})`)
+        .call(xAxis)
+
+
+    },[container, dataSet, country, svgWidth, file, svgHeight])
+  
+    return (
+        <div className = {styles.containerChart}>
+            <div className = {styles.header}>Number of COVID-19 cases in {country}</div>
+            <svg xmlns="http://www.w3.org/2000/svg" width={svgWidth} height={svgHeight} ref={container} />
+        </div>
+
+    );
+  
+}

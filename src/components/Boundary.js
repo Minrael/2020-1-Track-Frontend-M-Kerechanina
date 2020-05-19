@@ -3,6 +3,7 @@ import * as Sentry from '@sentry/browser';
 
 class Boundary extends Component {
 
+
     state = { eventId: null };
 
 

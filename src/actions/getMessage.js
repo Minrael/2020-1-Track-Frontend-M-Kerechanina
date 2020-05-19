@@ -20,6 +20,7 @@ const getMessagesFailure = (error) => ({
 })
 
 export const getMessages = () => {
+
     return (dispatch) => {
         try {
           dispatch(getMessagesStarted());
@@ -28,5 +29,6 @@ export const getMessages = () => {
         catch (e) {
           dispatch(getMessagesFailure(e.message))
         }
+
     }
 }
