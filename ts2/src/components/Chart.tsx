@@ -3,12 +3,12 @@ import * as React from 'react';
 import * as T from './Chart.types'
 import styles from './Chart.module.css'
 
-export const Component: React.FunctionComponent<T.IProps> = (props) => {
-
-    const file = props.filename
-    const country = props.country
-    const svgHeight = props.height
-    const svgWidth = props.width
+export const Component: React.FunctionComponent<T.IProps> = ({
+  country,
+  filename: file,
+  height: svgHeight,
+  width: svgWidth,
+}) => {
 
     const [dataSet, setDataSet] = React.useState([] as T.IDataSet[])
 
