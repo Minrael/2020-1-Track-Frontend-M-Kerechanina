@@ -94,7 +94,7 @@ export const Component: React.FunctionComponent<T.IProps> = ({
         .call(xAxis)
 
 
-    },[container, dataSet, props.width, country, svgWidth, file, svgHeight])
+    },[container, dataSet, country, svgWidth, file, svgHeight])
   
     return (
         <div className = {styles.containerChart}>
